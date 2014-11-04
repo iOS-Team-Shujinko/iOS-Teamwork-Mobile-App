@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ICItemTableViewController.h
 //  ItemCatalogApp
 //
 //  Created by m3tr0n0m3 on 11/4/14.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ICItemTableViewController : UITableViewController
 
-
+@property (strong, nonatomic) NSMutableArray *items;
 @end
-

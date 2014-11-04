@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Shujinko. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ICLoginViewController.h"
 
-@interface ViewController ()
+@interface ICLoginViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ICLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

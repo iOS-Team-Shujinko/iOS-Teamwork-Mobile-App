@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Shujinko. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "ICAppDelegate.h"
 
-@interface AppDelegate ()
+@interface ICAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation ICAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
