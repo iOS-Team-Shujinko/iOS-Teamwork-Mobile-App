@@ -9,6 +9,7 @@
 #import "ICItemTableViewController.h"
 #import "ItemsData.h"
 #import "ICItem.h"
+#import "ICItemImageViewController.h"
 
 @interface ICItemTableViewController ()
 
@@ -22,9 +23,20 @@
     self.items = [[NSMutableArray alloc] init];
     
     for (NSMutableDictionary *itemData in [ItemsData allItems]){
-        NSString *imageName = [NSString stringWithFormat:@"coffee.jpg"];
+        NSString *imageName = [NSString stringWithFormat:@"%@.jpg", itemData[ITEM_NAME]];
         ICItem *item = [[ICItem alloc]initWithData:itemData andImage:[UIImage imageNamed:imageName]];
         [self.items addObject:item];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        if ([segue.destinationViewController isKindOfClass:[ICItemImageViewController class]]) {
+            ICItemImageViewController * nextImageViewController = segue.destinationViewController;
+            NSIndexPath *path = [self.tableView indexPathForCell:sender];
+            ICItem *selectedObject = self.items[path.row];
+            nextImageViewController.itemObject = selectedObject;
+        }
     }
 }
 
@@ -54,6 +66,8 @@
     cell.textLabel.text = item.name;
     cell.detailTextLabel.text = item.info;
     cell.imageView.image = item.itemImage;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.imageView.clipsToBounds = YES;
     return cell;
 }
 
