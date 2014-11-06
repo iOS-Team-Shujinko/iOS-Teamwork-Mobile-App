@@ -52,10 +52,11 @@
     addedItemObject.seller = self.sellerFIeld.text;
     addedItemObject.warranty = [self.warrantyField.text floatValue];
     addedItemObject.info = self.infoField.text;
-//    [addedItemObject saveInBackground];
+   [addedItemObject saveInBackground];
     return addedItemObject;
 }
 
 
 
 @end
+;

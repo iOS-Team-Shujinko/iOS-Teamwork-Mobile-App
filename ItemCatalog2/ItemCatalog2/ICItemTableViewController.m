@@ -21,32 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
     PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
-    NSLog(@"%@",query);
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             self.items = [[NSMutableArray alloc] initWithArray:objects];
             [self.tableView reloadData];
         }else{
-            NSLog(@"greshka");
+            NSLog(@"%@ %@",error, [error userInfo]);
         }
     }];
     
-//    for (NSMutableDictionary *itemData in [ItemsData allItems]){
-//        NSString *imageName = [NSString stringWithFormat:@"%@.jpg", itemData[ITEM_NAME]];
-//        
-//        UIImage* imageToAdd = [UIImage imageNamed: imageName];
-//        NSData *imageData = UIImagePNGRepresentation(imageToAdd);
-//        PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
-//        
-//        ICItem *item = [[ICItem alloc]initWithData:itemData andImage: imageFile];
-//        [self.items addObject:item];
-//        [item saveInBackground];
-//    }
+}
+
+-(void)viewWillLayoutSubviews{
+    //[self.tableView reloadData];
+ 
     
 }
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -84,17 +77,20 @@
 - (void)didCancel{
     NSLog(@"did cancel");
     [self dismissViewControllerAnimated:YES completion:nil];
+     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)addObject:(ICItem *)itemObject{
     
-    if (!self.addedItems) {
-        self.addedItems = [[NSMutableArray alloc] init];
-        [self.addedItems addObject:itemObject];
-        
-    }
-    NSLog(@"add items");
+//    if (!self.addedItems) {
+//        self.addedItems = [[NSMutableArray alloc] init];
+    [self.items addObject:itemObject];
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+//    }
+    NSLog(@"add items");
+    [self.tableView reloadData];
 }
 
 
@@ -148,6 +144,8 @@
     
     [self performSegueWithIdentifier:@"ItemData" sender:indexPath];
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -10,7 +10,6 @@
 		84A1187F1A0BF1140061BFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1187E1A0BF1140061BFF4 /* main.m */; };
 		84A118821A0BF1140061BFF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118811A0BF1140061BFF4 /* AppDelegate.m */; };
 		84A118851A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A118831A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld */; };
-		84A118881A0BF1150061BFF4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118871A0BF1150061BFF4 /* ViewController.m */; };
 		84A1188B1A0BF1150061BFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A118891A0BF1150061BFF4 /* Main.storyboard */; };
 		84A1188D1A0BF1150061BFF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A1188C1A0BF1150061BFF4 /* Images.xcassets */; };
 		84A118901A0BF1150061BFF4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A1188E1A0BF1150061BFF4 /* LaunchScreen.xib */; };
@@ -53,24 +52,12 @@
 		84A118801A0BF1140061BFF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84A118811A0BF1140061BFF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84A118841A0BF1150061BFF4 /* ItemCatalog2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItemCatalog2.xcdatamodel; sourceTree = "<group>"; };
-		84A118861A0BF1150061BFF4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84A118871A0BF1150061BFF4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84A1188A1A0BF1150061BFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84A1188C1A0BF1150061BFF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84A1188F1A0BF1150061BFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		84A118951A0BF1150061BFF4 /* ItemCatalog2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemCatalog2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A1189A1A0BF1150061BFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A1189B1A0BF1150061BFF4 /* ItemCatalog2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCatalog2Tests.m; sourceTree = "<group>"; };
-		84A118A51A0BF1620061BFF4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioToolbox.framework; sourceTree = "<group>"; };
-		84A118A61A0BF1620061BFF4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CFNetwork.framework; sourceTree = "<group>"; };
-		84A118A71A0BF1620061BFF4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreGraphics.framework; sourceTree = "<group>"; };
-		84A118A81A0BF1620061BFF4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreLocation.framework; sourceTree = "<group>"; };
-		84A118A91A0BF1620061BFF4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.dylib; sourceTree = "<group>"; };
-		84A118AA1A0BF1620061BFF4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileCoreServices.framework; sourceTree = "<group>"; };
-		84A118AB1A0BF1620061BFF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
-		84A118AC1A0BF1620061BFF4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Security.framework; sourceTree = "<group>"; };
-		84A118AD1A0BF1620061BFF4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
-		84A118AE1A0BF1620061BFF4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
 		84A118AF1A0BF1620061BFF4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		84A118B01A0BF1620061BFF4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		84A118B11A0BF1620061BFF4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -204,16 +191,6 @@
 				84A118CD1A0BF2810061BFF4 /* StoreKit.framework */,
 				84A118CE1A0BF2810061BFF4 /* SystemConfiguration.framework */,
 				84A118C01A0BF1EF0061BFF4 /* libz.dylib */,
-				84A118A51A0BF1620061BFF4 /* AudioToolbox.framework */,
-				84A118A61A0BF1620061BFF4 /* CFNetwork.framework */,
-				84A118A71A0BF1620061BFF4 /* CoreGraphics.framework */,
-				84A118A81A0BF1620061BFF4 /* CoreLocation.framework */,
-				84A118A91A0BF1620061BFF4 /* libz.dylib */,
-				84A118AA1A0BF1620061BFF4 /* MobileCoreServices.framework */,
-				84A118AB1A0BF1620061BFF4 /* QuartzCore.framework */,
-				84A118AC1A0BF1620061BFF4 /* Security.framework */,
-				84A118AD1A0BF1620061BFF4 /* StoreKit.framework */,
-				84A118AE1A0BF1620061BFF4 /* SystemConfiguration.framework */,
 				84A118AF1A0BF1620061BFF4 /* Bolts.framework */,
 				84A118B01A0BF1620061BFF4 /* Parse.framework */,
 				84A118B11A0BF1620061BFF4 /* ParseFacebookUtils.framework */,
@@ -234,8 +211,6 @@
 				84A118E71A0BF46D0061BFF4 /* ICLoginViewController.m */,
 				84A118D91A0BF43B0061BFF4 /* ICAddItemViewController.h */,
 				84A118DA1A0BF43B0061BFF4 /* ICAddItemViewController.m */,
-				84A118861A0BF1150061BFF4 /* ViewController.h */,
-				84A118871A0BF1150061BFF4 /* ViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,7 +319,6 @@
 				84A118EA1A0BF46D0061BFF4 /* ICItemDataViewController.m in Sources */,
 				84A1187F1A0BF1140061BFF4 /* main.m in Sources */,
 				84A118E91A0BF46D0061BFF4 /* ICItem.m in Sources */,
-				84A118881A0BF1150061BFF4 /* ViewController.m in Sources */,
 				84A118EC1A0BF46D0061BFF4 /* ICItemTableViewController.m in Sources */,
 				84A118EB1A0BF46D0061BFF4 /* ICItemImageViewController.m in Sources */,
 				84A118ED1A0BF46D0061BFF4 /* ICLoginViewController.m in Sources */,
@@ -558,6 +532,7 @@
 				84A118A11A0BF1150061BFF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84A118A21A0BF1150061BFF4 /* Build configuration list for PBXNativeTarget "ItemCatalog2Tests" */ = {
 			isa = XCConfigurationList;
@@ -566,6 +541,7 @@
 				84A118A41A0BF1150061BFF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
