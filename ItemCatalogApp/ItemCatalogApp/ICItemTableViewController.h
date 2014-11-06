@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ICAddItemViewController.h"
 
-@interface ICItemTableViewController : UITableViewController
+@interface ICItemTableViewController : UITableViewController <ICAddItemViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *items;
+@property (strong, nonatomic) NSMutableArray *addedItems;
 @end

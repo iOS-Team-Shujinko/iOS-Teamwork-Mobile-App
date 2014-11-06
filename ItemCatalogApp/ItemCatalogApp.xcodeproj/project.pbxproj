@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B062B341A0BBE4A00259255 /* ICAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B062B331A0BBE4A00259255 /* ICAddItemViewController.m */; };
 		2B2E26BE1A09792B00E0606C /* Coffee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B2E26BD1A09792B00E0606C /* Coffee.jpg */; };
 		2B2E26C71A097CA200E0606C /* ICItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2E26C61A097CA200E0606C /* ICItem.m */; };
 		2B753DC01A0833570030E7E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B753DBF1A0833570030E7E5 /* main.m */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B062B321A0BBE4A00259255 /* ICAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAddItemViewController.h; sourceTree = "<group>"; };
+		2B062B331A0BBE4A00259255 /* ICAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAddItemViewController.m; sourceTree = "<group>"; };
 		2B2E26BD1A09792B00E0606C /* Coffee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Coffee.jpg; sourceTree = "<group>"; };
 		2B2E26C51A097CA200E0606C /* ICItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICItem.h; sourceTree = "<group>"; };
 		2B2E26C61A097CA200E0606C /* ICItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICItem.m; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 		84A0657B1A0B7187005A905A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2B062B321A0BBE4A00259255 /* ICAddItemViewController.h */,
+				2B062B331A0BBE4A00259255 /* ICAddItemViewController.m */,
 				2B753DC71A0833570030E7E5 /* ICLoginViewController.h */,
 				2B753DC81A0833570030E7E5 /* ICLoginViewController.m */,
 				2BECEBBB1A095EDB00BFA320 /* ICItemTableViewController.h */,
@@ -340,6 +345,7 @@
 				2B753DC31A0833570030E7E5 /* ICAppDelegate.m in Sources */,
 				2B753DC91A0833570030E7E5 /* ICLoginViewController.m in Sources */,
 				2B753DC01A0833570030E7E5 /* main.m in Sources */,
+				2B062B341A0BBE4A00259255 /* ICAddItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

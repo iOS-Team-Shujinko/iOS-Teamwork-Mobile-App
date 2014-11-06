@@ -98,7 +98,13 @@
                             <outlet property="delegate" destination="uQj-Fs-ffg" id="0Oe-XF-4LN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items List" id="Z18-s9-CjV"/>
+                    <navigationItem key="navigationItem" title="Items List" id="Z18-s9-CjV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3OY-8W-8Tj">
+                            <connections>
+                                <segue destination="o1o-sr-Fzf" kind="show" id="ao1-3k-58e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Sav-BF-FXu" kind="show" identifier="ItemData" id="kpv-9h-9jF"/>
                     </connections>
@@ -140,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uvd-wM-uDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2550" y="-298"/>
+            <point key="canvasLocation" x="2536" y="-644"/>
         </scene>
         <!--Item Data View Controller-->
         <scene sceneID="55H-yM-iXP">
@@ -201,7 +207,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erE-da-Bai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2550" y="510"/>
+            <point key="canvasLocation" x="2536" y="45"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="10S-c3-uek">
+            <objects>
+                <viewController id="o1o-sr-Fzf" customClass="ICAddItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UAz-Qs-jJu"/>
+                        <viewControllerLayoutGuide type="bottom" id="FSr-jn-sjV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qGr-Bv-a3U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
+                                <rect key="frame" x="43" y="323" width="62" height="54"/>
+                                <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="hJ3-rj-kzT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-mf-CUT">
+                                <rect key="frame" x="338" y="323" width="62" height="54"/>
+                                <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="dVa-Md-j2M"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tXt-HT-gY4">
+                                <rect key="frame" x="43" y="77" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="price" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDu-xv-4zq">
+                                <rect key="frame" x="43" y="125" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="seller name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIU-f7-rlz">
+                                <rect key="frame" x="43" y="174" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item warranty" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BAH-00-WFB">
+                                <rect key="frame" x="43" y="222" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item information" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tDg-gJ-bWS">
+                                <rect key="frame" x="43" y="272" width="357" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoField" destination="tDg-gJ-bWS" id="7Kn-sg-MHM"/>
+                        <outlet property="nameField" destination="tXt-HT-gY4" id="Es7-vx-Ev7"/>
+                        <outlet property="priceField" destination="lDu-xv-4zq" id="H6c-lA-hOs"/>
+                        <outlet property="sellerFIeld" destination="sIU-f7-rlz" id="SLl-wF-bbW"/>
+                        <outlet property="warrantyField" destination="BAH-00-WFB" id="WTH-cy-BS3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsS-AR-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2536" y="738"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqW-Wf-kg4">

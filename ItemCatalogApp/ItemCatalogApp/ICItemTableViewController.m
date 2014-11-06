@@ -24,6 +24,16 @@
     
     self.items = [[NSMutableArray alloc] init];
     
+//    PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
+//    NSLog(@"%@",query);
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if(!error){
+//            NSLog(@"tuk");
+//        }else{
+//            NSLog(@"greshka");
+//        }
+//    }];
+    
     for (NSMutableDictionary *itemData in [ItemsData allItems]){
         NSString *imageName = [NSString stringWithFormat:@"%@.jpg", itemData[ITEM_NAME]];
         
@@ -33,11 +43,13 @@
         
         ICItem *item = [[ICItem alloc]initWithData:itemData andImage: imageFile];
         [self.items addObject:item];
-//        [item saveInBackground];
+        [item saveInBackground];
     }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         if ([segue.destinationViewController isKindOfClass:[ICItemImageViewController class]]) {
             ICItemImageViewController * nextImageViewController = segue.destinationViewController;
@@ -55,6 +67,12 @@
             targetViewController.itemObject = selectedObject;
         }
     }
+    
+    if ([segue.destinationViewController isKindOfClass:[ICAddItemViewController class]]) {
+        ICAddItemViewController *addItemObject = segue.destinationViewController;
+        addItemObject.delegate = self;
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,33 +81,64 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)didCancel{
+    NSLog(@"did cancel");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)addObject:(ICItem *)itemObject{
+    
+    if (!self.addedItems) {
+        self.addedItems = [[NSMutableArray alloc] init];
+        [self.addedItems addObject:itemObject];
+        
+    }
+    NSLog(@"add items");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    if ([self.addedItems count]) {
+        return 2;
+    }else{
+        return 1;    
+    }
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return self.items.count;
+    if (section == 1) {
+        return self.addedItems.count;
+    }else{
+        return self.items.count;
+    }
+    
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
     
-    ICItem *item = [self.items objectAtIndex:indexPath.row];
+    if (indexPath.section == 1) {
+        // todo
+    } else {
+        ICItem *item = [self.items objectAtIndex:indexPath.row];
     
-    PFFile *userImageFile = item.itemImage;
+        PFFile *userImageFile = item.itemImage;
    
-    NSData *imageData=[userImageFile getData];
+        NSData *imageData=[userImageFile getData];
     
-    UIImage *image = [UIImage imageWithData:imageData];
+        UIImage *image = [UIImage imageWithData:imageData];
     
-    cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.info;
-    cell.imageView.image = image;
+        cell.textLabel.text = item.name;
+        cell.detailTextLabel.text = item.info;
+        cell.imageView.image = image;
+    }
+    
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.clipsToBounds = YES;
     return cell;
