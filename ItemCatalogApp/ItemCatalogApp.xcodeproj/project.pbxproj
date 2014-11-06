@@ -17,6 +17,7 @@
 		2B753DCE1A0833570030E7E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B753DCD1A0833570030E7E5 /* Images.xcassets */; };
 		2B753DD11A0833570030E7E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B753DCF1A0833570030E7E5 /* LaunchScreen.xib */; };
 		2B753DDD1A0833570030E7E5 /* ItemCatalogAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B753DDC1A0833570030E7E5 /* ItemCatalogAppTests.m */; };
+		2B7EABEE1A0B7056002DFF6E /* ICItemDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EABED1A0B7056002DFF6E /* ICItemDataViewController.m */; };
 		2B9367DB1A0ABEF9004EBEBC /* ICItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9367DA1A0ABEF9004EBEBC /* ICItemImageViewController.m */; };
 		2BDA0AE71A0ADB1B00AE423D /* Coca-Cola.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BDA0AE41A0ADB1B00AE423D /* Coca-Cola.jpg */; };
 		2BDA0AE81A0ADB1B00AE423D /* Bubblegum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BDA0AE51A0ADB1B00AE423D /* Bubblegum.jpg */; };
@@ -53,6 +54,8 @@
 		2B753DD61A0833570030E7E5 /* ItemCatalogAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemCatalogAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B753DDB1A0833570030E7E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B753DDC1A0833570030E7E5 /* ItemCatalogAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCatalogAppTests.m; sourceTree = "<group>"; };
+		2B7EABEC1A0B7056002DFF6E /* ICItemDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICItemDataViewController.h; sourceTree = "<group>"; };
+		2B7EABED1A0B7056002DFF6E /* ICItemDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICItemDataViewController.m; sourceTree = "<group>"; };
 		2B9367D91A0ABEF9004EBEBC /* ICItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICItemImageViewController.h; sourceTree = "<group>"; };
 		2B9367DA1A0ABEF9004EBEBC /* ICItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICItemImageViewController.m; sourceTree = "<group>"; };
 		2BDA0AE41A0ADB1B00AE423D /* Coca-Cola.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Coca-Cola.jpg"; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				2BECEBBC1A095EDB00BFA320 /* ICItemTableViewController.m */,
 				2B9367D91A0ABEF9004EBEBC /* ICItemImageViewController.h */,
 				2B9367DA1A0ABEF9004EBEBC /* ICItemImageViewController.m */,
+				2B7EABEC1A0B7056002DFF6E /* ICItemDataViewController.h */,
+				2B7EABED1A0B7056002DFF6E /* ICItemDataViewController.m */,
 				2B753DCD1A0833570030E7E5 /* Images.xcassets */,
 				2B753DCF1A0833570030E7E5 /* LaunchScreen.xib */,
 				2B753DC41A0833570030E7E5 /* ItemCatalogApp.xcdatamodeld */,
@@ -263,6 +268,7 @@
 				2B2E26C71A097CA200E0606C /* ICItem.m in Sources */,
 				2B9367DB1A0ABEF9004EBEBC /* ICItemImageViewController.m in Sources */,
 				2BECEBBD1A095EDB00BFA320 /* ICItemTableViewController.m in Sources */,
+				2B7EABEE1A0B7056002DFF6E /* ICItemDataViewController.m in Sources */,
 				2B753DC31A0833570030E7E5 /* ICAppDelegate.m in Sources */,
 				2B753DC91A0833570030E7E5 /* ICLoginViewController.m in Sources */,
 				2B753DC01A0833570030E7E5 /* main.m in Sources */,

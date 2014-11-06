@@ -22,7 +22,7 @@
     
     self.name = data[ITEM_NAME];
     self.price = [data[ITEM_PRICE] floatValue];
-    self.size = [data[ITEM_SIZE] floatValue];
+    self.seller = data[ITEM_SELLER];
     self.warranty = [data[ITEM_WARRANTY] floatValue];
     self.info = data[ITEM_INFO];
     self.itemImage = data[ITEM_IMAGE];

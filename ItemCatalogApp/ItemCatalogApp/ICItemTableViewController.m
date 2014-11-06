@@ -71,6 +71,10 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    
+    [self performSegueWithIdentifier:@"ItemData" sender:indexPath];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (nonatomic) float price;
-@property (nonatomic) int size;
+@property (strong, nonatomic) NSString *seller;
 @property (nonatomic) int warranty;
 @property (strong, nonatomic) NSString *info;
 
