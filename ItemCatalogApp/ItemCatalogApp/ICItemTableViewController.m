@@ -10,6 +10,7 @@
 #import "ItemsData.h"
 #import "ICItem.h"
 #import "ICItemImageViewController.h"
+#import <Parse/Parse.h>
 
 @interface ICItemTableViewController ()
 
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.items = [[NSMutableArray alloc] init];
     
     for (NSMutableDictionary *itemData in [ItemsData allItems]){
