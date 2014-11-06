@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface ICItem : NSObject
+@interface ICItem : PFObject<PFSubclassing>
 
 @property (strong, nonatomic) NSString *name;
 @property (nonatomic) float price;
@@ -17,9 +18,9 @@
 @property (nonatomic) int warranty;
 @property (strong, nonatomic) NSString *info;
 
-@property (strong,nonatomic) UIImage *itemImage;
+@property (strong,nonatomic) PFFile *itemImage;
 
 
--(instancetype)initWithData:(NSDictionary *)data andImage:(UIImage *)image;
+-(instancetype)initWithData:(NSDictionary *)data andImage:(PFFile *)image;
 
 @end

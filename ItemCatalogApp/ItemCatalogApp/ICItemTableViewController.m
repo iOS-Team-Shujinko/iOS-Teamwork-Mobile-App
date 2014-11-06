@@ -25,8 +25,14 @@
     
     for (NSMutableDictionary *itemData in [ItemsData allItems]){
         NSString *imageName = [NSString stringWithFormat:@"%@.jpg", itemData[ITEM_NAME]];
-        ICItem *item = [[ICItem alloc]initWithData:itemData andImage:[UIImage imageNamed:imageName]];
+        
+        UIImage* imageToAdd = [UIImage imageNamed: imageName];
+        NSData *imageData = UIImagePNGRepresentation(imageToAdd);
+        PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
+        
+        ICItem *item = [[ICItem alloc]initWithData:itemData andImage: imageFile];
         [self.items addObject:item];
+        [item saveInBackground];
     }
 }
 
@@ -62,11 +68,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
-  
+    
     ICItem *item = [self.items objectAtIndex:indexPath.row];
+    
+    PFFile *userImageFile = item.itemImage;
+   
+    NSData *imageData=[userImageFile getData];
+    
+    UIImage *image = [UIImage imageWithData:imageData];
+    
     cell.textLabel.text = item.name;
     cell.detailTextLabel.text = item.info;
-    cell.imageView.image = item.itemImage;
+    cell.imageView.image = image;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.clipsToBounds = YES;
     return cell;

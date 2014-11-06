@@ -20,7 +20,13 @@
     
     self.scrollView.delegate = self;
     
-    [self.imageView setImage:self.itemObject.itemImage];
+    PFFile *userImageFile = self.itemObject.itemImage;
+    
+    NSData *imageData=[userImageFile getData];
+    
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    [self.imageView setImage:image];
     
     [self.scrollView setMinimumZoomScale:1.0f];
     [self.scrollView setMaximumZoomScale:5.0f];
