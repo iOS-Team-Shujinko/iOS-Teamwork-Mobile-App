@@ -16,7 +16,7 @@
 @dynamic itemImage;
 @dynamic name;
 @dynamic warranty;
-@dynamic size;
+@dynamic seller;
 @dynamic price;
 
 -(instancetype)init{

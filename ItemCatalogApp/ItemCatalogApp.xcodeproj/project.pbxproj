@@ -150,15 +150,13 @@
 				2B753DC21A0833570030E7E5 /* ICAppDelegate.m */,
 				84A0657B1A0B7187005A905A /* ViewControllers */,
 				2B753DCA1A0833570030E7E5 /* Main.storyboard */,
-<<<<<<< HEAD
 				2BECEBBB1A095EDB00BFA320 /* ICItemTableViewController.h */,
 				2BECEBBC1A095EDB00BFA320 /* ICItemTableViewController.m */,
 				2B9367D91A0ABEF9004EBEBC /* ICItemImageViewController.h */,
 				2B9367DA1A0ABEF9004EBEBC /* ICItemImageViewController.m */,
 				2B7EABEC1A0B7056002DFF6E /* ICItemDataViewController.h */,
 				2B7EABED1A0B7056002DFF6E /* ICItemDataViewController.m */,
-=======
->>>>>>> FETCH_HEAD
+
 				2B753DCD1A0833570030E7E5 /* Images.xcassets */,
 				2B753DCF1A0833570030E7E5 /* LaunchScreen.xib */,
 				2B753DC41A0833570030E7E5 /* ItemCatalogApp.xcdatamodeld */,
