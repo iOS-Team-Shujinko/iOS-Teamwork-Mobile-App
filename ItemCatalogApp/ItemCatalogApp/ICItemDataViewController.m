@@ -48,7 +48,7 @@
             break;
         case 3:
             cell.textLabel.text = @"Item Warranty: ";
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%f", self.itemObject.price];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", self.itemObject.warranty];
             break;
         case 4:
             cell.textLabel.text = @"Item Info: ";

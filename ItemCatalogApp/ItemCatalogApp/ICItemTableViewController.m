@@ -11,6 +11,7 @@
 #import "ICItem.h"
 #import "ICItemImageViewController.h"
 #import <Parse/Parse.h>
+#import "ICItemDataViewController.h"
 
 @interface ICItemTableViewController ()
 
@@ -32,7 +33,7 @@
         
         ICItem *item = [[ICItem alloc]initWithData:itemData andImage: imageFile];
         [self.items addObject:item];
-        [item saveInBackground];
+//        [item saveInBackground];
     }
 }
 
@@ -43,6 +44,15 @@
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
             ICItem *selectedObject = self.items[path.row];
             nextImageViewController.itemObject = selectedObject;
+        }
+    }
+    
+    if ([sender isKindOfClass:[NSIndexPath class]]) {
+        if ([segue.destinationViewController isKindOfClass:[ICItemDataViewController class]]) {
+            ICItemDataViewController *targetViewController = segue.destinationViewController;
+            NSIndexPath *path = sender;
+            ICItem *selectedObject = self.items[path.row];
+            targetViewController.itemObject = selectedObject;
         }
     }
 }
