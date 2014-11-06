@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>755F3568-55DC-4D9E-BAF7-7FCB16E99CCE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ItemCatalog2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>88FAD5E40964552719589FCA181ADADCA79278A9</key>
+		<string>https://github.com/iOS-Team-Shujinko/iOS-Teamwork-Mobile-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ItemCatalog2/ItemCatalog2.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>88FAD5E40964552719589FCA181ADADCA79278A9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/iOS-Team-Shujinko/iOS-Teamwork-Mobile-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>88FAD5E40964552719589FCA181ADADCA79278A9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>88FAD5E40964552719589FCA181ADADCA79278A9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Teamwork-Mobile-App</string>
+		</dict>
+	</array>
+</dict>
+</plist>
