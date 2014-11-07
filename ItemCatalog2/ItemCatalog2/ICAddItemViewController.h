@@ -19,10 +19,11 @@
 @end
 
 
-@interface ICAddItemViewController : UIViewController
+@interface ICAddItemViewController : UIViewController <UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) id <ICAddItemViewControllerDelegate> delegate;
 
+@property (strong, nonatomic) IBOutlet UIImageView *itemImageView;
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *priceField;
 @property (strong, nonatomic) IBOutlet UITextField *sellerFIeld;
@@ -30,5 +31,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *infoField;
 - (IBAction)addButtonTap:(UIButton *)sender;
 - (IBAction)cancelButtonTap:(UIButton *)sender;
+- (IBAction)addImageTap:(UIButton *)sender;
 
 @end

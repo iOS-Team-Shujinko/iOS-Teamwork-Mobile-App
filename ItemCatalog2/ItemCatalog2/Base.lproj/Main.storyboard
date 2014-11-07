@@ -248,8 +248,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-mf-CUT">
-                                <rect key="frame" x="464" y="323" width="120" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-mf-CUT">
+                                <rect key="frame" x="464" y="526" width="120" height="54"/>
                                 <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Zha-NO-xsX"/>
@@ -289,7 +289,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
-                                <rect key="frame" x="16" y="323" width="119" height="54"/>
+                                <rect key="frame" x="16" y="526" width="119" height="54"/>
                                 <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,6 +299,18 @@
                                     <action selector="addButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="hJ3-rj-kzT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-MG-omG">
+                                <rect key="frame" x="268" y="543" width="79" height="30"/>
+                                <state key="normal" title="addimage">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addImageTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="bfs-e1-d35"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-NA-QKG">
+                                <rect key="frame" x="162" y="334" width="240" height="164"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -327,6 +339,7 @@
                     </view>
                     <connections>
                         <outlet property="infoField" destination="tDg-gJ-bWS" id="7Kn-sg-MHM"/>
+                        <outlet property="itemImageView" destination="i2M-NA-QKG" id="xNd-WO-aqL"/>
                         <outlet property="nameField" destination="tXt-HT-gY4" id="Es7-vx-Ev7"/>
                         <outlet property="priceField" destination="lDu-xv-4zq" id="H6c-lA-hOs"/>
                         <outlet property="sellerFIeld" destination="sIU-f7-rlz" id="SLl-wF-bbW"/>

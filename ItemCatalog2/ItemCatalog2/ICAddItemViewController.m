@@ -8,6 +8,7 @@
 
 #import "ICAddItemViewController.h"
 #import <Parse/Parse.h>
+#import <MobileCoreServices/UTCoreTypes.h>
 
 @interface ICAddItemViewController ()
 
@@ -44,18 +45,59 @@
     [self.delegate didCancel];
 }
 
+- (IBAction)addImageTap:(UIButton *)sender {
+    [self showPhotoLibary];
+}
+
+
+- (void)showPhotoLibary
+{
+    if (([UIImagePickerController isSourceTypeAvailable:
+          UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)) {
+        return;
+    }
+    
+    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
+    mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    // Displays saved pictures from the Camera Roll album.
+    mediaUI.mediaTypes = @[(NSString*)kUTTypeImage];
+    
+    // Hides the controls for moving & scaling pictures
+    mediaUI.allowsEditing = NO;
+    
+//    mediaUI.delegate = self;
+//    
+    [self.navigationController presentModalViewController: mediaUI animated: YES];
+}
+
 - (ICItem *)newItemObject{
     ICItem *addedItemObject = [[ICItem alloc]init];
+    
+    NSData *imageData = UIImageJPEGRepresentation(_itemImageView.image, 0.8);
+    NSString *filename = [NSString stringWithFormat:@"%@.png", _nameField.text];
+    PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
+    
+    NSLog(@"%@",imageFile);
     
     addedItemObject.name = self.nameField.text;
     addedItemObject.price = [self.priceField.text floatValue];
     addedItemObject.seller = self.sellerFIeld.text;
     addedItemObject.warranty = [self.warrantyField.text floatValue];
     addedItemObject.info = self.infoField.text;
+    addedItemObject.itemImage = imageFile;
    [addedItemObject saveInBackground];
     return addedItemObject;
 }
 
+- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
+    
+    UIImage *originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.itemImageView.image = originalImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 
 @end
