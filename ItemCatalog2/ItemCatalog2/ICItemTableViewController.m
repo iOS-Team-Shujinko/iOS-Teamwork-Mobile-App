@@ -32,68 +32,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.tintColor = [UIColor blackColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(getDataFromServer)
+                  forControlEvents:UIControlEventValueChanged];
+
+    [self showLoginScreen];
     
-    if (![PFUser currentUser]) { // No user logged in
+    [self getDataFromServer];
+    
+}
+
+-(void) showLoginScreen{
+    if (![PFUser currentUser]) {
+        // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
         
-        // set the colors of the placeholders
-        UIColor *color = [UIColor blueColor];
         
-        logInViewController.logInView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Име" attributes:@{NSForegroundColorAttributeName: color}];
-        logInViewController.logInView.usernameField.alpha = 0.8;
-        logInViewController.logInView.usernameField.backgroundColor =[UIColor whiteColor];
-        logInViewController.logInView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Парола" attributes:@{NSForegroundColorAttributeName: color}];
-        logInViewController.logInView.passwordField.alpha = 0.8;
-        logInViewController.logInView.passwordField.backgroundColor =[UIColor whiteColor];
-        [logInViewController.logInView.logInButton setTitle:@"Log In" forState:normal];
-        [logInViewController.logInView.signUpButton setTitle:@"Sign Up" forState:normal];
+        //[logInViewController.logInView setLogo:[self getTitle]];
         
+        [logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginLogo.png"]]];
+        //logInViewController.logInView.backgroundColor = [UIColor whiteColor];
         
-        [logInViewController.logInView setLogo:[self getTitle]];
-        
-        logInViewController.logInView.signUpLabel.attributedText =[[NSAttributedString alloc] initWithString:@"Don't have an account?" attributes:@{NSForegroundColorAttributeName: color}];
-        
-        logInViewController.logInView.signUpButton.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Sign Up" attributes:@{NSForegroundColorAttributeName: color}];
-        
-        //[logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
-        //
         // Create the sign up view controller
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        UIGraphicsBeginImageContext(logInViewController.view.frame.size);
-        [[UIImage imageNamed:@"signupbg.png"] drawInRect:logInViewController.view.bounds];
-        UIImage *signupBg = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
+        [signUpViewController.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loginLogo.png"]]];
         
         // Assign our sign up controller to be displayed from the login controller
         [logInViewController setSignUpController:signUpViewController];
-        [signUpViewController.signUpView setBackgroundColor:[UIColor colorWithPatternImage:signupBg]];
-        signUpViewController.signUpView.usernameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{NSForegroundColorAttributeName: color}];
-        signUpViewController.signUpView.usernameField.alpha = 0.8;
-        signUpViewController.signUpView.usernameField.backgroundColor =[UIColor whiteColor];
-        signUpViewController.signUpView.passwordField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Passwprd" attributes:@{NSForegroundColorAttributeName: color}];
-        signUpViewController.signUpView.passwordField.alpha = 0.8;
-        signUpViewController.signUpView.passwordField.backgroundColor =[UIColor whiteColor];
-        signUpViewController.signUpView.emailField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"e-mail" attributes:@{NSForegroundColorAttributeName: color}];
-        signUpViewController.signUpView.emailField.alpha = 0.8;
-        signUpViewController.signUpView.emailField.backgroundColor =[UIColor whiteColor];
-        [signUpViewController.signUpView.signUpButton setTitle:@"Sign me up!" forState:normal];
         
-        [signUpViewController.signUpView setLogo: [self getTitle]];
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
         
     }else {
         NSLog(@"%@ logged in", [PFUser currentUser].username);
-       // [self performSegueWithIdentifier: @"loginToTable" sender: self];
         
     }
-    
-    [self getDataFromServer];
-    
 }
 
 
@@ -105,6 +84,8 @@
         if(!error){
             self.items = [[NSMutableArray alloc] initWithArray:objects];
             [self.tableView reloadData];
+            
+            [self.refreshControl endRefreshing];
         }else{
             NSLog(@"%@ %@",error, [error userInfo]);
         }
@@ -135,7 +116,7 @@
 
 // Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Грешка при вписването...");
+    NSLog(@"Error: could not log in...");
 }
 
 // Sent to the delegate when the log in screen is dismissed.
@@ -178,8 +159,14 @@
     
 }
 
-- (IBAction)refreshButton:(UIBarButtonItem *)sender{
-    [self getDataFromServer];
+
+- (IBAction)logInLogOutTap:(UIBarButtonItem *)sender {
+    
+    if (self.addButton.enabled) {
+        self.addButton.enabled = NO;
+    }else{
+        self.addButton.enabled = YES;
+    }
 }
 
 

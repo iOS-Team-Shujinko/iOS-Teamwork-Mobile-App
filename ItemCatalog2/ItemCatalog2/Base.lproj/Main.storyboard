@@ -47,9 +47,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items List" id="Z18-s9-CjV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="0bF-2t-J9z">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="0bF-2t-J9z">
                             <connections>
-                                <action selector="refreshButton:" destination="uQj-Fs-ffg" id="SOf-mI-MzY"/>
+                                <action selector="logInLogOutTap:" destination="uQj-Fs-ffg" id="Ad1-q3-5fQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3OY-8W-8Tj">
@@ -59,6 +59,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="3OY-8W-8Tj" id="zTv-W1-rNh"/>
+                        <outlet property="logInLogOutButton" destination="0bF-2t-J9z" id="5iB-tu-N5j"/>
                         <segue destination="Sav-BF-FXu" kind="show" identifier="ItemData" id="kpv-9h-9jF"/>
                     </connections>
                 </tableViewController>

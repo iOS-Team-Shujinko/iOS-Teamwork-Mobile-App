@@ -12,6 +12,7 @@
 		8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123B1A0D00CC002D5F3F /* Accounts.framework */; };
 		8407123F1A0D00EE002D5F3F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123D1A0D00EE002D5F3F /* AdSupport.framework */; };
 		840712401A0D00EE002D5F3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123E1A0D00EE002D5F3F /* Social.framework */; };
+		84A03EE61A0D460C006B7687 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A03EE51A0D460C006B7687 /* loginLogo.png */; };
 		84A1187F1A0BF1140061BFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1187E1A0BF1140061BFF4 /* main.m */; };
 		84A118821A0BF1140061BFF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118811A0BF1140061BFF4 /* AppDelegate.m */; };
 		84A118851A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A118831A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		8407123B1A0D00CC002D5F3F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		8407123D1A0D00EE002D5F3F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8407123E1A0D00EE002D5F3F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		84A03EE51A0D460C006B7687 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loginLogo.png; path = ItemCatalog2/loginLogo.png; sourceTree = "<group>"; };
 		84A118791A0BF1140061BFF4 /* ItemCatalog2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemCatalog2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A1187D1A0BF1140061BFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A1187E1A0BF1140061BFF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		84A118701A0BF1140061BFF4 = {
 			isa = PBXGroup;
 			children = (
+				84A03EE51A0D460C006B7687 /* loginLogo.png */,
 				84A118DE1A0BF46D0061BFF4 /* ICItem.h */,
 				84A118DF1A0BF46D0061BFF4 /* ICItem.m */,
 				84A1187B1A0BF1140061BFF4 /* ItemCatalog2 */,
@@ -312,6 +315,7 @@
 			files = (
 				84A1188B1A0BF1150061BFF4 /* Main.storyboard in Resources */,
 				84A118901A0BF1150061BFF4 /* LaunchScreen.xib in Resources */,
+				84A03EE61A0D460C006B7687 /* loginLogo.png in Resources */,
 				84A1188D1A0BF1150061BFF4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
