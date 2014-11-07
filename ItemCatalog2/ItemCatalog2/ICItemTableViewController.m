@@ -92,6 +92,12 @@
         
     }
     
+    [self getDataFromServer];
+    
+}
+
+
+- (void)getDataFromServer{
     
     PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
     
@@ -103,7 +109,6 @@
             NSLog(@"%@ %@",error, [error userInfo]);
         }
     }];
-    
 }
 
 
@@ -171,6 +176,10 @@
     //[self.tableView reloadData];
  
     
+}
+
+- (IBAction)refreshButton:(UIBarButtonItem *)sender{
+    [self getDataFromServer];
 }
 
 

@@ -11,6 +11,8 @@
 
 @interface ICItemTableViewController : UITableViewController <ICAddItemViewControllerDelegate,PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+- (IBAction)refreshButton:(UIBarButtonItem *)sender;
+
 @property (strong, nonatomic) NSMutableArray *items;
 @property (strong, nonatomic) NSMutableArray *addedItems;
 @end
