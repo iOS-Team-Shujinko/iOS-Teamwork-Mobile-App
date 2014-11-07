@@ -70,6 +70,7 @@
         [self presentViewController:logInViewController animated:YES completion:NULL];
         
     }else {
+        self.logInLogOutButton.title = @"LogOut";
         NSLog(@"%@ logged in", [PFUser currentUser].username);
         
     }
@@ -111,6 +112,8 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self.navigationItem.leftBarButtonItem setTitle:@"LogOut"];
+    self.addButton.enabled = YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -121,6 +124,14 @@
 
 // Sent to the delegate when the log in screen is dismissed.
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationItem.leftBarButtonItem setTitle:@"LogIn"];
+    self.addButton.enabled = NO;
+    [[[UIAlertView alloc] initWithTitle:@"Not logged in!"
+                                message:@"You have to be logged in if you want to add items to the store or to your basket!"
+                               delegate:nil
+                      cancelButtonTitle:@"Ok"
+                      otherButtonTitles:nil] show];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -153,19 +164,13 @@
 }
 
 
--(void)viewWillLayoutSubviews{
-    //[self.tableView reloadData];
- 
-    
-}
-
-
 - (IBAction)logInLogOutTap:(UIBarButtonItem *)sender {
-    
-    if (self.addButton.enabled) {
-        self.addButton.enabled = NO;
-    }else{
-        self.addButton.enabled = YES;
+    PFUser *currentUser = [PFUser currentUser];
+    if (!currentUser) {
+        [self showLoginScreen];
+    } else {
+        [PFUser logOut];
+        [self showLoginScreen];
     }
 }
 
