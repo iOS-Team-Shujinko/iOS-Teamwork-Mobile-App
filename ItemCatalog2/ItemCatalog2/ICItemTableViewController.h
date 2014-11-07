@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ICAddItemViewController.h"
 
-@interface ICItemTableViewController : UITableViewController <ICAddItemViewControllerDelegate>
+@interface ICItemTableViewController : UITableViewController <ICAddItemViewControllerDelegate,PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *items;
 @property (strong, nonatomic) NSMutableArray *addedItems;

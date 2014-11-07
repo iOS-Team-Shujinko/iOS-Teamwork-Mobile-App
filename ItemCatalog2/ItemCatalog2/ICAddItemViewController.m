@@ -68,7 +68,8 @@
     
     mediaUI.delegate = self;
    
-    [self.navigationController presentModalViewController: mediaUI animated: YES];
+    [self presentViewController:mediaUI animated:YES completion:nil];
+    
 }
 
 - (ICItem *)newItemObject{
