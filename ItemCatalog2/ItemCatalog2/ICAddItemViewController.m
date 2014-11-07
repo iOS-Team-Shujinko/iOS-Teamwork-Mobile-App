@@ -14,17 +14,61 @@
 
 @end
 
-@implementation ICAddItemViewController
+@implementation ICAddItemViewController{
+    
+    CLLocationManager *manager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    manager = [[CLLocationManager alloc]init];
+    geocoder = [[CLGeocoder alloc]init];
+    
+    //to be moved
+    manager.delegate = self;
+    manager.desiredAccuracy = kCLLocationAccuracyBest;
+    [manager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma CLLocationManagerDelegate methods
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"error %@", error);
+    NSLog(@"Failed to get location!");
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"location %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+//        self.locationLabel.text = [NSString stringWithFormat:@"%.8f - %.8f", currentLocation.coordinate.longitude, currentLocation.coordinate.latitude];
+    }
+    
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error == nil && [placemarks count] > 0 ) {
+            placemark = [placemarks lastObject];
+        
+            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@", placemark.subThoroughfare, placemark.thoroughfare,placemark.postalCode,placemark.locality, placemark.administrativeArea, placemark.country];
+        }else{
+        
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation

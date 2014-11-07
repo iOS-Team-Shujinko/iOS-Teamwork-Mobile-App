@@ -185,8 +185,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-mf-CUT">
-                                <rect key="frame" x="464" y="310" width="120" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2w-mf-CUT">
+                                <rect key="frame" x="464" y="354" width="120" height="54"/>
                                 <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Y88-m6-4Pd"/>
@@ -224,8 +224,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
-                                <rect key="frame" x="16" y="310" width="119" height="54"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
+                                <rect key="frame" x="16" y="354" width="119" height="54"/>
                                 <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="f1c-ND-bhJ"/>
@@ -244,8 +244,8 @@
                                     <constraint firstAttribute="width" constant="240" id="vqX-KV-yzF"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-MG-omG">
-                                <rect key="frame" x="261" y="322" width="79" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-MG-omG">
+                                <rect key="frame" x="261" y="366" width="79" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="32B-4B-FuT"/>
                                 </constraints>
@@ -256,6 +256,12 @@
                                     <action selector="addImageTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="bfs-e1-d35"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNw-jT-Pw4">
+                                <rect key="frame" x="206" y="310" width="188" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -292,6 +298,7 @@
                     <connections>
                         <outlet property="infoField" destination="tDg-gJ-bWS" id="7Kn-sg-MHM"/>
                         <outlet property="itemImageView" destination="i2M-NA-QKG" id="xNd-WO-aqL"/>
+                        <outlet property="locationLabel" destination="JNw-jT-Pw4" id="V31-Eu-yzE"/>
                         <outlet property="nameField" destination="tXt-HT-gY4" id="Es7-vx-Ev7"/>
                         <outlet property="priceField" destination="lDu-xv-4zq" id="H6c-lA-hOs"/>
                         <outlet property="sellerFIeld" destination="sIU-f7-rlz" id="SLl-wF-bbW"/>

@@ -19,7 +19,7 @@
 @end
 
 
-@interface ICAddItemViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface ICAddItemViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) id <ICAddItemViewControllerDelegate> delegate;
 
@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *sellerFIeld;
 @property (strong, nonatomic) IBOutlet UITextField *warrantyField;
 @property (strong, nonatomic) IBOutlet UITextField *infoField;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 - (IBAction)addButtonTap:(UIButton *)sender;
 - (IBAction)cancelButtonTap:(UIButton *)sender;
 - (IBAction)addImageTap:(UIButton *)sender;
