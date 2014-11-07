@@ -66,8 +66,8 @@
     // Hides the controls for moving & scaling pictures
     mediaUI.allowsEditing = NO;
     
-//    mediaUI.delegate = self;
-//    
+    mediaUI.delegate = self;
+   
     [self.navigationController presentModalViewController: mediaUI animated: YES];
 }
 

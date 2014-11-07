@@ -19,7 +19,7 @@
 @end
 
 
-@interface ICAddItemViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface ICAddItemViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) id <ICAddItemViewControllerDelegate> delegate;
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712371A0CFDDD002D5F3F /* FacebookSDK.framework */; };
+		8407123A1A0D00C5002D5F3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */; };
+		8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123B1A0D00CC002D5F3F /* Accounts.framework */; };
+		8407123F1A0D00EE002D5F3F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123D1A0D00EE002D5F3F /* AdSupport.framework */; };
+		840712401A0D00EE002D5F3F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123E1A0D00EE002D5F3F /* Social.framework */; };
 		84A1187F1A0BF1140061BFF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1187E1A0BF1140061BFF4 /* main.m */; };
 		84A118821A0BF1140061BFF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118811A0BF1140061BFF4 /* AppDelegate.m */; };
 		84A118851A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A118831A0BF1150061BFF4 /* ItemCatalog2.xcdatamodeld */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840712371A0CFDDD002D5F3F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		8407123B1A0D00CC002D5F3F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		8407123D1A0D00EE002D5F3F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		8407123E1A0D00EE002D5F3F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		84A118791A0BF1140061BFF4 /* ItemCatalog2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemCatalog2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A1187D1A0BF1140061BFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A1187E1A0BF1140061BFF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +100,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8407123F1A0D00EE002D5F3F /* AdSupport.framework in Frameworks */,
+				840712401A0D00EE002D5F3F /* Social.framework in Frameworks */,
+				8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */,
+				8407123A1A0D00C5002D5F3F /* libsqlite3.0.dylib in Frameworks */,
+				840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */,
 				84A118CF1A0BF2810061BFF4 /* AudioToolbox.framework in Frameworks */,
 				84A118D01A0BF2810061BFF4 /* CFNetwork.framework in Frameworks */,
 				84A118D11A0BF2810061BFF4 /* CoreGraphics.framework in Frameworks */,
@@ -181,6 +196,11 @@
 		84A118BF1A0BF1690061BFF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8407123D1A0D00EE002D5F3F /* AdSupport.framework */,
+				8407123E1A0D00EE002D5F3F /* Social.framework */,
+				8407123B1A0D00CC002D5F3F /* Accounts.framework */,
+				840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */,
+				840712371A0CFDDD002D5F3F /* FacebookSDK.framework */,
 				84A118C61A0BF2810061BFF4 /* AudioToolbox.framework */,
 				84A118C71A0BF2810061BFF4 /* CFNetwork.framework */,
 				84A118C81A0BF2810061BFF4 /* CoreGraphics.framework */,

@@ -26,9 +26,15 @@
     
     UIImage *image = [UIImage imageWithData:imageData];
     
+//    UIGraphicsBeginImageContext(self.view.frame.size);
+//    [image drawInRect:self.view.bounds];
+//    UIImage *loginBg = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    
+    
     [self.imageView setImage:image];
     
-    [self.scrollView setMinimumZoomScale:1.0f];
+    [self.scrollView setMinimumZoomScale:0.1f];
     [self.scrollView setMaximumZoomScale:5.0f];
     
     
