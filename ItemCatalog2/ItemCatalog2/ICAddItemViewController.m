@@ -151,10 +151,10 @@
     PFFile* imageFile = [PFFile fileWithName:filename data:imageData];
 
     NSLog(@"%@", imageFile);
-
+    NSString* sellerName = [PFUser currentUser].username;
     addedItemObject.name = self.nameField.text;
     addedItemObject.price = [self.priceField.text floatValue];
-    addedItemObject.seller = self.sellerFIeld.text;
+    addedItemObject.seller = sellerName;
     addedItemObject.warranty = [self.warrantyField.text floatValue];
     addedItemObject.info = self.infoField.text;
     addedItemObject.address = self.addressField.text;
