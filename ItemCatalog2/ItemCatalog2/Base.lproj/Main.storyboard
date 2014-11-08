@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C6W-VN-eDY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sHY-pj-MAm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -66,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Yv-WF-PbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="45"/>
+            <point key="canvasLocation" x="2188" y="-191"/>
         </scene>
         <!--Item Image View Controller-->
         <scene sceneID="g4I-dv-cEF">
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uvd-wM-uDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536" y="-644"/>
+            <point key="canvasLocation" x="3104" y="-658"/>
         </scene>
         <!--Item Data View Controller-->
         <scene sceneID="55H-yM-iXP">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erE-da-Bai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536" y="45"/>
+            <point key="canvasLocation" x="3056" y="245"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="10S-c3-uek">
@@ -233,6 +233,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
+                                <rect key="frame" x="484" y="539" width="100" height="41"/>
+                                <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add Item">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="hJ3-rj-kzT"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-NA-QKG">
                                 <rect key="frame" x="158" y="323" width="285" height="201"/>
                                 <constraints>
@@ -247,21 +258,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqa-dl-XVm">
-                                <rect key="frame" x="16" y="263" width="101" height="41"/>
-                                <color key="backgroundColor" red="0.15473553379999999" green="0.48112983840000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="MMn-Xd-pNP"/>
-                                    <constraint firstAttribute="height" constant="41" id="qWK-zH-eJN"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Get Address">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addAddressButton:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="dnX-He-9wu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE9-MG-omG">
                                 <rect key="frame" x="484" y="262" width="100" height="42"/>
                                 <color key="backgroundColor" red="0.15473553379999999" green="0.48112983840000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -276,15 +272,19 @@
                                     <action selector="addImageTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="bfs-e1-d35"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-nd-KC7">
-                                <rect key="frame" x="484" y="539" width="100" height="41"/>
-                                <color key="backgroundColor" red="0.15473553375452642" green="0.48112983844673307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Add Item">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqa-dl-XVm">
+                                <rect key="frame" x="16" y="263" width="101" height="41"/>
+                                <color key="backgroundColor" red="0.15473553379999999" green="0.48112983840000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="MMn-Xd-pNP"/>
+                                    <constraint firstAttribute="height" constant="41" id="qWK-zH-eJN"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Get Address">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="hJ3-rj-kzT"/>
+                                    <action selector="addAddressButton:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="dnX-He-9wu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,12 +336,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsS-AR-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536" y="738"/>
+            <point key="canvasLocation" x="2188" y="614"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--All Items-->
         <scene sceneID="snK-Ta-ljC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYP-XG-Erd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C6W-VN-eDY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All Items" image="folders-folder.png" id="Q1I-Qq-1Hs">
+                        <inset key="imageInsets" minX="6" minY="15" maxX="10" maxY="22"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uhQ-Yr-GUd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -349,15 +353,90 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uQj-Fs-ffg" kind="relationship" relationship="rootViewController" id="VT9-9k-mKz"/>
+                        <segue destination="uQj-Fs-ffg" kind="relationship" relationship="rootViewController" id="B0r-6o-0VD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PYP-XG-Erd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="45"/>
+            <point key="canvasLocation" x="1258" y="-191"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9mE-JR-5Hs">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="sHY-pj-MAm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Wgr-C4-QJf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="C6W-VN-eDY" kind="relationship" relationship="viewControllers" id="9Bh-IP-aIo"/>
+                        <segue destination="0Vd-LC-OIO" kind="relationship" relationship="viewControllers" id="rgG-0T-2D1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGD-Yd-2u3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="-551"/>
+        </scene>
+        <!--Items List-->
+        <scene sceneID="pJM-vo-7U8">
+            <objects>
+                <tableViewController id="0Vd-LC-OIO" customClass="ICItemTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q2V-nq-ggz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="Lor-FW-hZp" detailTextLabel="8jL-Ly-GUR" rowHeight="51" style="IBUITableViewCellStyleSubtitle" id="DNT-QZ-cvm">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DNT-QZ-cvm" id="BTA-I1-uj4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lor-FW-hZp">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8jL-Ly-GUR">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Vd-LC-OIO" id="O4e-F7-wEH"/>
+                            <outlet property="delegate" destination="0Vd-LC-OIO" id="WDF-hb-DeL"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="Hand-pushing-a-shopping-cart-1127191642.png" id="UEZ-li-wf0">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Items List" id="Qkm-Kf-fud">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="H9x-O4-zz2">
+                            <connections>
+                                <action selector="logInLogOutTap:" destination="0Vd-LC-OIO" id="kcb-Hu-DjU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c3M-VP-eWe"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="c3M-VP-eWe" id="fsS-US-Jcj"/>
+                        <outlet property="logInLogOutButton" destination="H9x-O4-zz2" id="77F-KG-eZe"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-rk-uOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="-969"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Hand-pushing-a-shopping-cart-1127191642.png" width="128" height="128"/>
+        <image name="folders-folder.png" width="256" height="256"/>
         <image name="noimage.jpg" width="300" height="300"/>
     </resources>
 </document>

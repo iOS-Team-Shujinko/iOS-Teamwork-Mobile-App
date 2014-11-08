@@ -39,6 +39,8 @@
 		84A118EA1A0BF46D0061BFF4 /* ICItemDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118E11A0BF46D0061BFF4 /* ICItemDataViewController.m */; };
 		84A118EB1A0BF46D0061BFF4 /* ICItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118E31A0BF46D0061BFF4 /* ICItemImageViewController.m */; };
 		84A118EC1A0BF46D0061BFF4 /* ICItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A118E51A0BF46D0061BFF4 /* ICItemTableViewController.m */; };
+		84A196EE1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A196ED1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png */; };
+		84A196F01A0E5A1600C319A4 /* folders-folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A196EF1A0E5A1600C319A4 /* folders-folder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		84A118E31A0BF46D0061BFF4 /* ICItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICItemImageViewController.m; sourceTree = "<group>"; };
 		84A118E41A0BF46D0061BFF4 /* ICItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICItemTableViewController.h; sourceTree = "<group>"; };
 		84A118E51A0BF46D0061BFF4 /* ICItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICItemTableViewController.m; sourceTree = "<group>"; };
+		84A196ED1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hand-pushing-a-shopping-cart-1127191642.png"; path = "ItemCatalog2/Hand-pushing-a-shopping-cart-1127191642.png"; sourceTree = "<group>"; };
+		84A196EF1A0E5A1600C319A4 /* folders-folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "folders-folder.png"; path = "ItemCatalog2/folders-folder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 		84A118701A0BF1140061BFF4 = {
 			isa = PBXGroup;
 			children = (
+				84A196EF1A0E5A1600C319A4 /* folders-folder.png */,
+				84A196ED1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png */,
 				84A03EE51A0D460C006B7687 /* loginLogo.png */,
 				84A118DE1A0BF46D0061BFF4 /* ICItem.h */,
 				84A118DF1A0BF46D0061BFF4 /* ICItem.m */,
@@ -320,7 +326,9 @@
 				84A1188B1A0BF1150061BFF4 /* Main.storyboard in Resources */,
 				84A118901A0BF1150061BFF4 /* LaunchScreen.xib in Resources */,
 				84A03EE61A0D460C006B7687 /* loginLogo.png in Resources */,
+				84A196F01A0E5A1600C319A4 /* folders-folder.png in Resources */,
 				84A1188D1A0BF1150061BFF4 /* Images.xcassets in Resources */,
+				84A196EE1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
