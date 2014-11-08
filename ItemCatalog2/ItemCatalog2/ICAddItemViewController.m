@@ -14,23 +14,23 @@
 
 @end
 
-@implementation ICAddItemViewController{
-    
-    CLLocationManager *manager;
-    CLGeocoder *geocoder;
-    CLPlacemark *placemark;
-    
+@implementation ICAddItemViewController {
+
+    CLLocationManager* manager;
+    CLGeocoder* geocoder;
+    CLPlacemark* placemark;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-   
-    manager = [[CLLocationManager alloc]init];
-    geocoder = [[CLGeocoder alloc]init];
-   
+
+    manager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -45,20 +45,40 @@
 }
 */
 
-- (IBAction)addButtonTap:(UIButton *)sender {
-    ICItem *newItem = [self newItemObject];
+- (IBAction)addButtonTap:(UIButton*)sender
+{
+    ICItem* newItem = [self newItemObject];
     [self.delegate addObject:newItem];
 }
 
-- (IBAction)cancelButtonTap:(UIButton *)sender {
+- (IBAction)cancelButtonTap:(UIButton*)sender
+{
     [self.delegate didCancel];
 }
 
-- (IBAction)addImageTap:(UIButton *)sender {
-    [self showPhotoLibary];
+- (IBAction)addImageTap:(UIButton*)sender
+{
+
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Photos"
+                                                    message:@"Choose upload option!"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Library"
+                                          otherButtonTitles:@"Camera", nil];
+    [alert show];
 }
 
-- (IBAction)addAddressButton:(UIButton *)sender {
+- (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self showPhotoLibary];
+    }
+    else if (buttonIndex == 1) {
+        [self startCamera];
+    }
+}
+
+- (IBAction)addAddressButton:(UIButton*)sender
+{
     manager.delegate = self;
     manager.desiredAccuracy = kCLLocationAccuracyBest;
     [manager requestAlwaysAuthorization];
@@ -67,17 +87,18 @@
 
 #pragma CLLocationManagerDelegate methods
 
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+- (void)locationManager:(CLLocationManager*)manager didFailWithError:(NSError*)error
+{
     NSLog(@"error %@", error);
     NSLog(@"Failed to get location!");
-    
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+- (void)locationManager:(CLLocationManager*)manager didUpdateLocations:(NSArray*)locations
+{
 
-    CLLocation *currentLocation = [locations lastObject];
-    
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+    CLLocation* currentLocation = [locations lastObject];
+
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray* placemarks, NSError* error) {
         if (error == nil && [placemarks count] > 0 ) {
             placemark = [placemarks lastObject];
             
@@ -90,40 +111,47 @@
             NSLog(@"%@", error.debugDescription);
         }
     }];
-}
 
+    [manager stopUpdatingLocation];
+}
 
 - (void)showPhotoLibary
 {
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)) {
-        return;
-    }
-    
-    UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
-    mediaUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
+    UIImagePickerController* galleryPicker = [[UIImagePickerController alloc] init];
+    galleryPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
     // Displays saved pictures from the Camera Roll album.
-    mediaUI.mediaTypes = @[(NSString*)kUTTypeImage];
-    
+    galleryPicker.mediaTypes = @[ (NSString*)kUTTypeImage ];
+
     // Hides the controls for moving & scaling pictures
-    mediaUI.allowsEditing = NO;
-    
-    mediaUI.delegate = self;
-   
-    [self presentViewController:mediaUI animated:YES completion:nil];
-    
+    galleryPicker.allowsEditing = NO;
+
+    galleryPicker.delegate = self;
+
+    [self presentViewController:galleryPicker animated:YES completion:nil];
 }
 
-- (ICItem *)newItemObject{
-    ICItem *addedItemObject = [[ICItem alloc]init];
-    
-    NSData *imageData = UIImageJPEGRepresentation(_itemImageView.image, 0.8);
-    NSString *filename = [NSString stringWithFormat:@"%@.png", _nameField.text];
-    PFFile *imageFile = [PFFile fileWithName:filename data:imageData];
-    
-    NSLog(@"%@",imageFile);
-    
+- (void)startCamera
+{
+    UIImagePickerController* cameraPicker = [[UIImagePickerController alloc] init];
+    cameraPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+    cameraPicker.delegate = self;
+
+    [self presentViewController:cameraPicker animated:YES completion:nil];
+}
+
+- (ICItem*)newItemObject
+{
+
+    ICItem* addedItemObject = [[ICItem alloc] init];
+
+    NSData* imageData = UIImageJPEGRepresentation(_itemImageView.image, 0.8);
+    NSString* filename = [NSString stringWithFormat:@"%@.png", _nameField.text];
+    PFFile* imageFile = [PFFile fileWithName:filename data:imageData];
+
+    NSLog(@"%@", imageFile);
+
     addedItemObject.name = self.nameField.text;
     addedItemObject.price = [self.priceField.text floatValue];
     addedItemObject.seller = self.sellerFIeld.text;
@@ -131,19 +159,18 @@
     addedItemObject.info = self.infoField.text;
     addedItemObject.address = self.addressField.text;
     addedItemObject.itemImage = imageFile;
-   [addedItemObject saveInBackground];
+    [addedItemObject saveInBackground];
     return addedItemObject;
 }
 
-- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info {
-    
-    UIImage *originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.itemImageView.image = originalImage;
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-}
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
+{
 
+    UIImage* originalImage = (UIImage*)[info objectForKey:UIImagePickerControllerOriginalImage];
+    self.itemImageView.image = originalImage;
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
 ;
