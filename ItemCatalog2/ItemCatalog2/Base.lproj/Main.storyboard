@@ -12,12 +12,12 @@
         <scene sceneID="fje-E7-16H">
             <objects>
                 <tableViewController id="uQj-Fs-ffg" customClass="ICItemTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ATg-Ys-7vR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="ATg-Ys-7vR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="OD4-It-f8W" detailTextLabel="pis-OU-sSs" style="IBUITableViewCellStyleSubtitle" id="0Wm-sK-r8U">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="OD4-It-f8W" detailTextLabel="pis-OU-sSs" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="0Wm-sK-r8U">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Wm-sK-r8U" id="Zwr-2P-nYC">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uvd-wM-uDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3104" y="-658"/>
+            <point key="canvasLocation" x="3916" y="-658"/>
         </scene>
         <!--Item Data View Controller-->
         <scene sceneID="55H-yM-iXP">
@@ -173,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erE-da-Bai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056" y="245"/>
+            <point key="canvasLocation" x="3072" y="169"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="10S-c3-uek">
@@ -244,7 +244,7 @@
                                     <action selector="addButtonTap:" destination="o1o-sr-Fzf" eventType="touchUpInside" id="hJ3-rj-kzT"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-NA-QKG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="noimage.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-NA-QKG">
                                 <rect key="frame" x="158" y="323" width="285" height="201"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="285" id="OKp-ty-YGm"/>
@@ -341,7 +341,6 @@
         <!--All Items-->
         <scene sceneID="snK-Ta-ljC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PYP-XG-Erd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C6W-VN-eDY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="All Items" image="folders-folder.png" id="Q1I-Qq-1Hs">
                         <inset key="imageInsets" minX="6" minY="15" maxX="10" maxY="22"/>
@@ -356,6 +355,7 @@
                         <segue destination="uQj-Fs-ffg" kind="relationship" relationship="rootViewController" id="B0r-6o-0VD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYP-XG-Erd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1258" y="-191"/>
         </scene>
@@ -371,23 +371,23 @@
                     </tabBar>
                     <connections>
                         <segue destination="C6W-VN-eDY" kind="relationship" relationship="viewControllers" id="9Bh-IP-aIo"/>
-                        <segue destination="0Vd-LC-OIO" kind="relationship" relationship="viewControllers" id="rgG-0T-2D1"/>
+                        <segue destination="hdE-6E-g9g" kind="relationship" relationship="viewControllers" id="rgG-0T-2D1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGD-Yd-2u3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="474" y="-551"/>
         </scene>
-        <!--Items List-->
+        <!--Shopping Cart-->
         <scene sceneID="pJM-vo-7U8">
             <objects>
-                <tableViewController id="0Vd-LC-OIO" customClass="ICItemTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q2V-nq-ggz">
+                <tableViewController id="0Vd-LC-OIO" customClass="ICShoppingCartViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q2V-nq-ggz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="Lor-FW-hZp" detailTextLabel="8jL-Ly-GUR" rowHeight="51" style="IBUITableViewCellStyleSubtitle" id="DNT-QZ-cvm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemCell" textLabel="Lor-FW-hZp" detailTextLabel="8jL-Ly-GUR" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="DNT-QZ-cvm">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DNT-QZ-cvm" id="BTA-I1-uj4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -406,6 +406,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jCs-lv-6Ad" kind="show" id="1tP-k2-9wW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -413,25 +416,35 @@
                             <outlet property="delegate" destination="0Vd-LC-OIO" id="WDF-hb-DeL"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="Hand-pushing-a-shopping-cart-1127191642.png" id="UEZ-li-wf0">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
-                    </tabBarItem>
-                    <navigationItem key="navigationItem" title="Items List" id="Qkm-Kf-fud">
-                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="H9x-O4-zz2">
-                            <connections>
-                                <action selector="logInLogOutTap:" destination="0Vd-LC-OIO" id="kcb-Hu-DjU"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c3M-VP-eWe"/>
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="p6f-0H-Pmi">
+                        <barButtonItem key="leftBarButtonItem" title="Buy Selected" id="zjT-RY-bd2"/>
+                        <barButtonItem key="rightBarButtonItem" title="Buy All" id="FE6-IS-9CU"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="addButton" destination="c3M-VP-eWe" id="fsS-US-Jcj"/>
-                        <outlet property="logInLogOutButton" destination="H9x-O4-zz2" id="77F-KG-eZe"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-rk-uOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-969"/>
+            <point key="canvasLocation" x="3000" y="-989"/>
+        </scene>
+        <!--Shopping Cart-->
+        <scene sceneID="aZg-F8-lpg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hdE-6E-g9g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="Hand-pushing-a-shopping-cart-1127191642.png" id="UEZ-li-wf0">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-15" maxY="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sZg-E9-evd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Vd-LC-OIO" kind="relationship" relationship="rootViewController" id="acU-qw-SYd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTT-G3-Ka2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="-989"/>
         </scene>
     </scenes>
     <resources>
@@ -439,4 +452,7 @@
         <image name="folders-folder.png" width="256" height="256"/>
         <image name="noimage.jpg" width="300" height="300"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1tP-k2-9wW"/>
+    </inferredMetricsTieBreakers>
 </document>
