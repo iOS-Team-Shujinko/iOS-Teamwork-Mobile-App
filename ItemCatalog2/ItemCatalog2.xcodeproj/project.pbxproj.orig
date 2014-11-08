@@ -336,7 +336,11 @@
 				84A03EE61A0D460C006B7687 /* loginLogo.png in Resources */,
 				84A196F01A0E5A1600C319A4 /* folders-folder.png in Resources */,
 				84A1188D1A0BF1150061BFF4 /* Images.xcassets in Resources */,
+<<<<<<< HEAD
+				2B6A65361A0E57B6002DB2CF /* Icon-60@2x.png in Resources */,
+=======
 				84A196EE1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png in Resources */,
+>>>>>>> b14dd9e5b7875e859d76d2c28e2faae473ad2143
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
