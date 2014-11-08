@@ -20,6 +20,10 @@
     
     [Parse setApplicationId:@"aVfrrZopMjjyL46myWNJek7RvU4Wk4T0SH4xXUXy"
                   clientKey:@"zuGZRh2s9elp6v28tsKHt4rMbCt4JX6uPkT8d0En"];
+    
+    
+    [NSThread sleepForTimeInterval:2.0];
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -46,6 +50,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    [PFUser logOut];
 }
 
 #pragma mark - Core Data stack
