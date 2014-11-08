@@ -27,48 +27,13 @@
    
     manager = [[CLLocationManager alloc]init];
     geocoder = [[CLGeocoder alloc]init];
-    
-    //to be moved
-    manager.delegate = self;
-    manager.desiredAccuracy = kCLLocationAccuracyBest;
-    [manager startUpdatingLocation];
+   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma CLLocationManagerDelegate methods
-
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"error %@", error);
-    NSLog(@"Failed to get location!");
-    
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    NSLog(@"location %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-//        self.locationLabel.text = [NSString stringWithFormat:@"%.8f - %.8f", currentLocation.coordinate.longitude, currentLocation.coordinate.latitude];
-    }
-    
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (error == nil && [placemarks count] > 0 ) {
-            placemark = [placemarks lastObject];
-        
-            self.locationLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@", placemark.subThoroughfare, placemark.thoroughfare,placemark.postalCode,placemark.locality, placemark.administrativeArea, placemark.country];
-        }else{
-        
-            NSLog(@"%@", error.debugDescription);
-        }
-    }];
-    
-    
-}
-
 
 /*
 #pragma mark - Navigation
@@ -91,6 +56,40 @@
 
 - (IBAction)addImageTap:(UIButton *)sender {
     [self showPhotoLibary];
+}
+
+- (IBAction)addAddressButton:(UIButton *)sender {
+    manager.delegate = self;
+    manager.desiredAccuracy = kCLLocationAccuracyBest;
+    [manager requestAlwaysAuthorization];
+    [manager startUpdatingLocation];
+}
+
+#pragma CLLocationManagerDelegate methods
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"error %@", error);
+    NSLog(@"Failed to get location!");
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+
+    CLLocation *currentLocation = [locations lastObject];
+    
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error == nil && [placemarks count] > 0 ) {
+            placemark = [placemarks lastObject];
+            
+            self.addressField.text = [NSString stringWithFormat:@"%@ %@, %@",
+                                      placemark.postalCode,
+                                      placemark.locality,
+                                      placemark.country];
+        }else{
+            
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
 }
 
 
@@ -130,6 +129,7 @@
     addedItemObject.seller = self.sellerFIeld.text;
     addedItemObject.warranty = [self.warrantyField.text floatValue];
     addedItemObject.info = self.infoField.text;
+    addedItemObject.address = self.addressField.text;
     addedItemObject.itemImage = imageFile;
    [addedItemObject saveInBackground];
     return addedItemObject;

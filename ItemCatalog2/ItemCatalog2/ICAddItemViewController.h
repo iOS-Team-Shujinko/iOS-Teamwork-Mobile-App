@@ -29,9 +29,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *sellerFIeld;
 @property (strong, nonatomic) IBOutlet UITextField *warrantyField;
 @property (strong, nonatomic) IBOutlet UITextField *infoField;
-@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UITextField *addressField;
+
 - (IBAction)addButtonTap:(UIButton *)sender;
 - (IBAction)cancelButtonTap:(UIButton *)sender;
 - (IBAction)addImageTap:(UIButton *)sender;
+- (IBAction)addAddressButton:(UIButton *)sender;
 
 @end

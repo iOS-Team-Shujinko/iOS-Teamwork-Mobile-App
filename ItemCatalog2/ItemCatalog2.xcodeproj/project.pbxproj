@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BB84BDE1A0E336700683BAC /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BB84BDD1A0E336700683BAC /* noimage.jpg */; };
 		840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712371A0CFDDD002D5F3F /* FacebookSDK.framework */; };
 		8407123A1A0D00C5002D5F3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */; };
 		8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123B1A0D00CC002D5F3F /* Accounts.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BB84BDD1A0E336700683BAC /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
 		840712371A0CFDDD002D5F3F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8407123B1A0D00CC002D5F3F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -172,6 +174,7 @@
 			children = (
 				84A1187D1A0BF1140061BFF4 /* Info.plist */,
 				84A1187E1A0BF1140061BFF4 /* main.m */,
+				2BB84BDD1A0E336700683BAC /* noimage.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB84BDE1A0E336700683BAC /* noimage.jpg in Resources */,
 				84A1188B1A0BF1150061BFF4 /* Main.storyboard in Resources */,
 				84A118901A0BF1150061BFF4 /* LaunchScreen.xib in Resources */,
 				84A03EE61A0D460C006B7687 /* loginLogo.png in Resources */,

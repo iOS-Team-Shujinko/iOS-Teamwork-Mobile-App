@@ -17,6 +17,7 @@
 @dynamic warranty;
 @dynamic seller;
 @dynamic price;
+@dynamic address;
 
 
 
