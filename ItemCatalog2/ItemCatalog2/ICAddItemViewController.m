@@ -45,16 +45,12 @@
 }
 */
 
-- (IBAction)addButtonTap:(UIButton*)sender
-{
+- (IBAction)addItemTap:(UIBarButtonItem *)sender {
     ICItem* newItem = [self newItemObject];
     [self.delegate addObject:newItem];
+
 }
 
-- (IBAction)cancelButtonTap:(UIButton*)sender
-{
-    [self.delegate didCancel];
-}
 
 - (IBAction)addImageTap:(UIButton*)sender
 {

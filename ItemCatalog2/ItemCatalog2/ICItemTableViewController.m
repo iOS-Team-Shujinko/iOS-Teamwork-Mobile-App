@@ -283,8 +283,7 @@
     } else {
         ICItem *item = [self.items objectAtIndex:indexPath.row];
     
-        PFFile *userImageFile = item.itemImage;
-        
+        PFFile *userImageFile = item.itemImage;        
         
         [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             
@@ -296,8 +295,7 @@
             }
             
         }];
-    
-        
+           
     
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;
