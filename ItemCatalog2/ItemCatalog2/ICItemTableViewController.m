@@ -301,20 +301,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    if ([self.addedItems count]) {
-        return 2;
-    }else{
-        return 1;    
-    }
     
+        return 1;    
+    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
-        return self.addedItems.count;
-    }else{
+    
         return self.items.count;
-    }
+    
     
 }
 
@@ -322,9 +318,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
     
-    if (indexPath.section == 1) {
-        // todo
-    } else {
         ICItem *item = [self.items objectAtIndex:indexPath.row];
     
         PFFile *userImageFile = item.itemImage;        
@@ -343,7 +336,7 @@
     
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;
-    }
+    
     
     CGSize itemSize = CGSizeMake(40, 40);
     UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
@@ -362,25 +355,46 @@
 
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentUsername = currentUser.username;
+    
+    ICItem *currentItem = [self.items objectAtIndex:indexPath.row];
+    PFUser *itemUser = currentItem.user;
+    [itemUser fetchIfNeeded];
+    NSString *username =itemUser.username;
+    
+    if ([currentUser.username isEqualToString:username]) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        ICItem *currentItem = [self.items objectAtIndex:indexPath.row];
+        [currentItem deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                [self.view makeToast:@"Item deleted on server!"
+                            duration:3.0
+                            position:CSToastPositionCenter
+                               title:@"Deleted Item"];
+            }
+        }];
+        [self.items removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
