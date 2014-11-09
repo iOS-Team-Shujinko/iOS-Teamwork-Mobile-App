@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BB84BDE1A0E336700683BAC /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BB84BDD1A0E336700683BAC /* noimage.jpg */; };
-		2BD452811A0F86F5005791F3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD452801A0F86F5005791F3 /* Reachability.m */; };
+		2BD452871A0F9469005791F3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD452861A0F9469005791F3 /* Reachability.m */; };
 		840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712371A0CFDDD002D5F3F /* FacebookSDK.framework */; };
 		8407123A1A0D00C5002D5F3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */; };
 		8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123B1A0D00CC002D5F3F /* Accounts.framework */; };
@@ -59,8 +59,8 @@
 /* Begin PBXFileReference section */
 		2B6A65351A0E57B6002DB2CF /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		2BB84BDD1A0E336700683BAC /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
-		2BD4527F1A0F86F5005791F3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		2BD452801A0F86F5005791F3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		2BD452851A0F9469005791F3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
+		2BD452861A0F9469005791F3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
 		840712371A0CFDDD002D5F3F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8407123B1A0D00CC002D5F3F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -182,6 +182,8 @@
 			children = (
 				8454BFD51A0F7E1200BF274E /* Models */,
 				84A118801A0BF1140061BFF4 /* AppDelegate.h */,
+				2BD452851A0F9469005791F3 /* Reachability.h */,
+				2BD452861A0F9469005791F3 /* Reachability.m */,
 				84A118811A0BF1140061BFF4 /* AppDelegate.m */,
 				84A118D81A0BF3970061BFF4 /* ViewControllers */,
 				84A118891A0BF1150061BFF4 /* Main.storyboard */,
@@ -373,9 +375,9 @@
 				8454BFD41A0F7E0900BF274E /* Item.m in Sources */,
 				84A118821A0BF1140061BFF4 /* AppDelegate.m in Sources */,
 				84CE866E1A0E5E02007977FF /* ICShoppingCartViewController.m in Sources */,
+				2BD452871A0F9469005791F3 /* Reachability.m in Sources */,
 				84A118EA1A0BF46D0061BFF4 /* ICItemDataViewController.m in Sources */,
 				84A1187F1A0BF1140061BFF4 /* main.m in Sources */,
-				2BD452811A0F86F5005791F3 /* Reachability.m in Sources */,
 				84A118E91A0BF46D0061BFF4 /* ICItem.m in Sources */,
 				84A118EC1A0BF46D0061BFF4 /* ICItemTableViewController.m in Sources */,
 				84A118EB1A0BF46D0061BFF4 /* ICItemImageViewController.m in Sources */,
