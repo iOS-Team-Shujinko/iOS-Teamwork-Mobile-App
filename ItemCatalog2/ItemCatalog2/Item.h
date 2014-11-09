@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * cartOwner;
 @property (nonatomic, retain) NSString * info;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSDecimalNumber * price;
 @property (nonatomic, retain) NSNumber * warranty;
 @property (nonatomic, retain) NSString * seller;

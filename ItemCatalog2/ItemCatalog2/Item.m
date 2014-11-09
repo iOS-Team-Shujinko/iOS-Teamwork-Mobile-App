@@ -15,6 +15,7 @@
 @dynamic cartOwner;
 @dynamic info;
 @dynamic name;
+@dynamic address;
 @dynamic price;
 @dynamic warranty;
 @dynamic seller;

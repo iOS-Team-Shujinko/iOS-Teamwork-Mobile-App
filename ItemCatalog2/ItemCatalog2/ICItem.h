@@ -13,9 +13,9 @@
 @interface ICItem : PFObject<PFSubclassing>
 
 @property (strong, nonatomic) NSString *name;
-@property (nonatomic) float price;
+@property (nonatomic) NSNumber* price;
 @property (strong, nonatomic) NSString *seller;
-@property (nonatomic) int warranty;
+@property (nonatomic) NSNumber* warranty;
 @property (strong, nonatomic) NSString *info;
 @property (strong, nonatomic) NSString *address;
 @property (strong,nonatomic) PFUser* user;

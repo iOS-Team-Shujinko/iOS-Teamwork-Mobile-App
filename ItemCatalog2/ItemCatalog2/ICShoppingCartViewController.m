@@ -12,6 +12,8 @@
 #import "ICItemImageViewController.h"
 #import <Parse/Parse.h>
 #import "ICItemDataViewController.h"
+#import <CoreData/CoreData.h>
+#import "Item.h"
 
 @interface ICShoppingCartViewController ()
 
@@ -27,32 +29,56 @@
     self.refreshControl.backgroundColor = [UIColor whiteColor];
     self.refreshControl.tintColor = [UIColor blackColor];
     [self.refreshControl addTarget:self
-                            action:@selector(getDataFromServer)
+                            action:@selector(getDataFromCoreData)
                   forControlEvents:UIControlEventValueChanged];
     
     
-    [self getDataFromServer];
+    [self getDataFromCoreData];
     
 }
 
-
-
-- (void)getDataFromServer{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error){
-            self.itemsInCart = [[NSMutableArray alloc] initWithArray:objects];
-            [self.tableView reloadData];
-            
-            [self.refreshControl endRefreshing];
-        }else{
-            NSLog(@"%@ %@",error, [error userInfo]);
-        }
-    }];
+    [self getDataFromCoreData];
 }
 
+- (void)getDataFromCoreData{
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    fetchRequest.sortDescriptors = @[];
+    
+    NSError *error = nil;
+    
+    NSArray *coreDataObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    self.itemsInCart = [[NSMutableArray alloc] initWithArray:coreDataObjects];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+
+}
+
+-(ICItem*) convertToICItem: (Item*) fromCoreDataItem{
+    
+    ICItem* itemToReturn = [[ICItem alloc] init];
+    
+    itemToReturn.name = fromCoreDataItem.name;
+    itemToReturn.price = fromCoreDataItem.price;
+    itemToReturn.warranty = fromCoreDataItem.warranty;
+    itemToReturn.info = fromCoreDataItem.info;
+    itemToReturn.seller = fromCoreDataItem.seller;
+    
+    NSString* filename = [NSString stringWithFormat:@"%@.png", fromCoreDataItem.name];
+    PFFile* imageFile = [PFFile fileWithName:filename data:fromCoreDataItem.image];
+    
+    itemToReturn.itemImage = imageFile;
+    
+    return itemToReturn;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -60,8 +86,9 @@
         if ([segue.destinationViewController isKindOfClass:[ICItemImageViewController class]]) {
             ICItemImageViewController * nextImageViewController = segue.destinationViewController;
             NSIndexPath *path = [self.tableView indexPathForCell:sender];
-            ICItem *selectedObject = self.itemsInCart[path.row];
-            nextImageViewController.itemObject = selectedObject;
+            Item *selectedObject = self.itemsInCart[path.row];
+            ICItem *convertedItem = [self convertToICItem:selectedObject];
+            nextImageViewController.itemObject = convertedItem;
         }
     }
     
@@ -69,8 +96,9 @@
         if ([segue.destinationViewController isKindOfClass:[ICItemDataViewController class]]) {
             ICItemDataViewController *targetViewController = segue.destinationViewController;
             NSIndexPath *path = sender;
-            ICItem *selectedObject = self.itemsInCart[path.row];
-            targetViewController.itemObject = selectedObject;
+            Item *selectedObject = self.itemsInCart[path.row];
+            ICItem *convertedItem = [self convertToICItem:selectedObject];
+            targetViewController.itemObject = convertedItem;
         }
     }
    
@@ -117,22 +145,11 @@
     if (indexPath.section == 1) {
         // todo
     } else {
-        ICItem *item = [self.itemsInCart objectAtIndex:indexPath.row];
+        Item *item = [self.itemsInCart objectAtIndex:indexPath.row];
         
-        PFFile *userImageFile = item.itemImage;
-        
-        [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            
-            if (!error) {
-                UIImage  *image = [UIImage imageWithData:data];
-                cell.imageView.image = image;
-            }else{
-                cell.imageView.image = [UIImage imageWithContentsOfFile:@"noimage.jpg"];
-            }
-            
-        }];
-
-        
+       
+        UIImage  *image = [UIImage imageWithData:item.image];
+        cell.imageView.image = image;
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;
     }
