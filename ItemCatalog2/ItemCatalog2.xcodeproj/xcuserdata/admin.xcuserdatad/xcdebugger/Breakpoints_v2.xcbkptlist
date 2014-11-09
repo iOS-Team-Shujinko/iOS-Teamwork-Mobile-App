@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ItemCatalog2/ICItemTableViewController.m"
-            timestampString = "437244191.148117"
+            filePath = "ItemCatalog2/ICAddItemViewController.m"
+            timestampString = "437248857.355012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
-            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-newItemObject"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
