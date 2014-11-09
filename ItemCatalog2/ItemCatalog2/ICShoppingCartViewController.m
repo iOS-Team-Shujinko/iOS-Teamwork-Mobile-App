@@ -50,13 +50,17 @@
     NSManagedObjectContext *context = [delegate managedObjectContext];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
-    fetchRequest.sortDescriptors = @[];
+    NSString *predicateText = [NSString stringWithFormat:@"(cartOwner LIKE[c] '%@')", [PFUser currentUser].username];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateText];
+    
+    [fetchRequest setPredicate:predicate];
     
     NSError *error = nil;
     
     NSArray *coreDataObjects = [context executeFetchRequest:fetchRequest error:&error];
     
     self.itemsInCart = [[NSMutableArray alloc] initWithArray:coreDataObjects];
+    
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 
