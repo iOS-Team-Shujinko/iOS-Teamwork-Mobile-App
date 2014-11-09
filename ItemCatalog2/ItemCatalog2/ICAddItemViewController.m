@@ -108,9 +108,6 @@
         [self.delegate addObject:newItem];
     }
 
-    ICItem* newItem = [self newItemObject];
-    [self.delegate addObject:newItem];
-
 }
 
 

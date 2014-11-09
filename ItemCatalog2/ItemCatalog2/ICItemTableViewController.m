@@ -89,6 +89,14 @@
             if (![context save:&error]) {
                 // error
                 NSLog(@"%@",error);
+            }else{
+                
+                [self.view makeToast:@"Item added to shopping cart!"
+                            duration:3.0
+                            position:CSToastPositionCenter
+                               title:@"Added Item"];
+                
+
             }
             
         }else{
