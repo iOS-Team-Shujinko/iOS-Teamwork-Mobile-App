@@ -130,8 +130,13 @@
         cell.imageView.image = image;
     }
     
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.imageView.clipsToBounds = YES;
+    CGSize itemSize = CGSizeMake(40, 40);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     return cell;
 }
 

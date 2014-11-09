@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uvd-wM-uDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3916" y="-658"/>
+            <point key="canvasLocation" x="3244" y="-885"/>
         </scene>
         <!--Item Data View Controller-->
         <scene sceneID="55H-yM-iXP">
@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erE-da-Bai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3072" y="169"/>
+            <point key="canvasLocation" x="3168" y="-119"/>
         </scene>
         <!--Add Item View Controller-->
         <scene sceneID="10S-c3-uek">
@@ -433,7 +433,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-rk-uOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000" y="-989"/>
+            <point key="canvasLocation" x="2188" y="-929"/>
         </scene>
         <!--Shopping Cart-->
         <scene sceneID="aZg-F8-lpg">
@@ -454,7 +454,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTT-G3-Ka2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-989"/>
+            <point key="canvasLocation" x="1268" y="-945"/>
         </scene>
     </scenes>
     <resources>
@@ -463,6 +463,6 @@
         <image name="noimage.jpg" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1tP-k2-9wW"/>
+        <segue reference="COU-iZ-erp"/>
     </inferredMetricsTieBreakers>
 </document>

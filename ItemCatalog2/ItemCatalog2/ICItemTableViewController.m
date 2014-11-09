@@ -43,6 +43,31 @@
     
     [self getDataFromServer];
     
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0; //seconds
+    lpgr.delegate = self;
+    [self.tableView addGestureRecognizer:lpgr];
+    
+    
+}
+
+- (IBAction)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        CGPoint p = [gestureRecognizer locationInView:self.tableView];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+        if (indexPath == nil) {
+            NSLog(@"long press on table view but not on a row");
+        } else {
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            if (cell.isHighlighted) {
+                NSLog(@"long press on table view at section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
+            }
+        }
+    }
 }
 
 -(void) showLoginScreen{
@@ -269,8 +294,13 @@
         cell.imageView.image = image;
     }
     
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    cell.imageView.clipsToBounds = YES;
+    CGSize itemSize = CGSizeMake(40, 40);
+    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
+    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
+    [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     return cell;
 }
 
