@@ -10,6 +10,6 @@
 
 @interface ICShoppingCartViewController : UITableViewController
 
+- (IBAction)buyAllButton:(UIBarButtonItem *)sender;
 @property (strong, nonatomic) NSMutableArray *itemsInCart;
-@property (strong, nonatomic) NSMutableArray *addedItems;
 @end

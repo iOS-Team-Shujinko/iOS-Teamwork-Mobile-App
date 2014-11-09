@@ -54,14 +54,22 @@
         
         ICItem *item = [self.items objectAtIndex:indexPath.row];
         
-       
+        NSString *currentUser = [PFUser currentUser].username;
+        NSString *itemUser = item.seller;
+        
+        
         if (indexPath == nil) {
             NSLog(@"long press on table view but not on a row");
         } else {
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             if (cell.isHighlighted) {
-                [self saveItemToCoreData:item];
-                NSLog(@"long press on table view at section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
+                
+                if ([currentUser isEqualToString:itemUser]) {
+                     [[[UIAlertView alloc] initWithTitle:@"Oops" message:@"You can not buy your own items - sorry :)" delegate:nil cancelButtonTitle:@"Ok i'll buy another item" otherButtonTitles:nil, nil]show];
+                }else{
+                    [self saveItemToCoreData:item];
+                    NSLog(@"long press on table view at section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
+                }
             }
         }
     }
@@ -95,8 +103,6 @@
                             duration:3.0
                             position:CSToastPositionCenter
                                title:@"Added Item"];
-                
-
             }
             
         }else{
@@ -360,14 +366,11 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     PFUser *currentUser = [PFUser currentUser];
-    NSString *currentUsername = currentUser.username;
     
     ICItem *currentItem = [self.items objectAtIndex:indexPath.row];
-    PFUser *itemUser = currentItem.user;
-    [itemUser fetchIfNeeded];
-    NSString *username =itemUser.username;
+    NSString *itemUser = currentItem.seller;
     
-    if ([currentUser.username isEqualToString:username]) {
+    if ([currentUser.username isEqualToString:itemUser]) {
         return YES;
     }else{
         return NO;

@@ -401,7 +401,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping Cart" id="p6f-0H-Pmi">
                         <barButtonItem key="leftBarButtonItem" title="Buy Selected" id="zjT-RY-bd2"/>
-                        <barButtonItem key="rightBarButtonItem" title="Buy All" id="FE6-IS-9CU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Buy All" id="FE6-IS-9CU">
+                            <connections>
+                                <action selector="buyAllButton:" destination="0Vd-LC-OIO" id="76E-Zr-sLw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="Sav-BF-FXu" kind="show" identifier="ItemData" id="FiR-Fl-2VM"/>

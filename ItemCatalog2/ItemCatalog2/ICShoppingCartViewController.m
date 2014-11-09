@@ -43,6 +43,27 @@
     [self getDataFromCoreData];
 }
 
+- (IBAction)buyAllButton:(UIBarButtonItem *)sender {
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError * error = nil;
+    NSArray * items = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject * item in items) {
+        [context deleteObject:item];
+    }
+    NSError *saveError = nil;
+    [context save:&saveError];
+    
+    [self getDataFromCoreData];
+    
+    [[[UIAlertView alloc] initWithTitle:@"YES!" message:@"You just bought all items in your cart :)" delegate:nil cancelButtonTitle:@"Yay !!!" otherButtonTitles:nil, nil]show];
+}
+
 - (void)getDataFromCoreData{
     
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -125,20 +146,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    if ([self.addedItems count]) {
-        return 2;
-    }else{
-        return 1;
-    }
+    return 1;
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
-        return self.addedItems.count;
-    }else{
-        return self.itemsInCart.count;
-    }
+   
+    return self.itemsInCart.count;
     
 }
 
@@ -146,17 +160,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemCell" forIndexPath:indexPath];
     
-    if (indexPath.section == 1) {
-        // todo
-    } else {
-        Item *item = [self.itemsInCart objectAtIndex:indexPath.row];
-        
+    Item *item = [self.itemsInCart objectAtIndex:indexPath.row];
        
-        UIImage  *image = [UIImage imageWithData:item.image];
-        cell.imageView.image = image;
-        cell.textLabel.text = item.name;
-        cell.detailTextLabel.text = item.info;
-    }
+    UIImage  *image = [UIImage imageWithData:item.image];
+    cell.imageView.image = image;
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = item.info;
     
     CGSize itemSize = CGSizeMake(40, 40);
     UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
@@ -183,17 +192,26 @@
  }
  */
 
-/*
+
  // Override to support editing the table view.
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         
+         Item *item = [self.itemsInCart objectAtIndex:indexPath.row];
+         
+         id delegate = [[UIApplication sharedApplication] delegate];
+         NSManagedObjectContext *context = [delegate managedObjectContext];
+         NSError *error = nil;
+         [context deleteObject:item];
+         [context save:&error];
+         [self.itemsInCart removeObjectAtIndex:indexPath.row];
+         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         
  } else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
  }
- }
- */
+
 
 /*
  // Override to support rearranging the table view.

@@ -167,6 +167,7 @@
 				84A1187B1A0BF1140061BFF4 /* ItemCatalog2 */,
 				84A118981A0BF1150061BFF4 /* ItemCatalog2Tests */,
 				84A1187A1A0BF1140061BFF4 /* Products */,
+				84A1D9861A0FFD5200E554F6 /* Libraries */,
 				84A118BF1A0BF1690061BFF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -183,14 +184,10 @@
 		84A1187B1A0BF1140061BFF4 /* ItemCatalog2 */ = {
 			isa = PBXGroup;
 			children = (
+				84A118D81A0BF3970061BFF4 /* ViewControllers */,
 				8454BFD51A0F7E1200BF274E /* Models */,
 				84A118801A0BF1140061BFF4 /* AppDelegate.h */,
-				2BD452851A0F9469005791F3 /* Reachability.h */,
-				2BD452861A0F9469005791F3 /* Reachability.m */,
-				2B7639251A0FB39300C169C4 /* UIView+Toast.h */,
-				2B7639261A0FB39300C169C4 /* UIView+Toast.m */,
 				84A118811A0BF1140061BFF4 /* AppDelegate.m */,
-				84A118D81A0BF3970061BFF4 /* ViewControllers */,
 				84A118891A0BF1150061BFF4 /* Main.storyboard */,
 				84A1188C1A0BF1150061BFF4 /* Images.xcassets */,
 				84A1188E1A0BF1150061BFF4 /* LaunchScreen.xib */,
@@ -271,6 +268,18 @@
 				84A118DA1A0BF43B0061BFF4 /* ICAddItemViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		84A1D9861A0FFD5200E554F6 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				2BD452851A0F9469005791F3 /* Reachability.h */,
+				2BD452861A0F9469005791F3 /* Reachability.m */,
+				2B7639251A0FB39300C169C4 /* UIView+Toast.h */,
+				2B7639261A0FB39300C169C4 /* UIView+Toast.m */,
+			);
+			name = Libraries;
+			path = ItemCatalog2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

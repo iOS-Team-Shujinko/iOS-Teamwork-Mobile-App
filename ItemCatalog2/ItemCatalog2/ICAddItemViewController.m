@@ -161,13 +161,14 @@
                                       placemark.postalCode,
                                       placemark.locality,
                                       placemark.country];
+            
+            [manager stopUpdatingLocation];
         }else{
             
             NSLog(@"%@", error.debugDescription);
         }
     }];
 
-    [manager stopUpdatingLocation];
 }
 
 - (void)showPhotoLibary
