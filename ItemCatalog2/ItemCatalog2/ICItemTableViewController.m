@@ -8,6 +8,7 @@
 
 #import "ICItemTableViewController.h"
 #import "ICItem.h"
+#import "Item.h"
 #import "ICItemImageViewController.h"
 #import <Parse/Parse.h>
 #import "ICItemDataViewController.h"
@@ -29,6 +30,7 @@
                             action:@selector(getDataFromServer)
                   forControlEvents:UIControlEventValueChanged];
 
+    
     [self showLoginScreen];
     
     [self getDataFromServer];
@@ -48,15 +50,67 @@
         CGPoint p = [gestureRecognizer locationInView:self.tableView];
         
         NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+        
+        ICItem *item = [self.items objectAtIndex:indexPath.row];
+        
+       
         if (indexPath == nil) {
             NSLog(@"long press on table view but not on a row");
         } else {
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             if (cell.isHighlighted) {
+                [self saveItemToCoreData:item];
                 NSLog(@"long press on table view at section %ld row %ld", (long)indexPath.section, (long)indexPath.row);
             }
         }
     }
+}
+
+-(void) saveItemToCoreData: (ICItem *) serverItem{
+    id delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    
+    Item *coreDataItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    coreDataItem.name = serverItem.name;
+    coreDataItem.seller = serverItem.seller;
+    coreDataItem.cartOwner = [PFUser currentUser].username;
+    coreDataItem.price = serverItem.price;
+    coreDataItem.info = serverItem.info;
+    coreDataItem.address = serverItem.address;
+    coreDataItem.warranty = serverItem.warranty;
+    
+    PFFile *itemImageFile = serverItem.itemImage;
+    
+    [itemImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            coreDataItem.image = data;
+            NSError *error = nil;
+            if (![context save:&error]) {
+                // error
+                NSLog(@"%@",error);
+            }
+            
+        }else{
+            NSLog(@"save item to core data - could not get image");
+        }
+    }];
+}
+
+
+- (void)getDataFromServer{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+            self.items = [[NSMutableArray alloc] initWithArray:objects];
+            [self.tableView reloadData];
+            
+            [self.refreshControl endRefreshing];
+        }else{
+            NSLog(@"%@ %@",error, [error userInfo]);
+        }
+    }];
 }
 
 -(void) showLoginScreen{
@@ -89,24 +143,6 @@
         
     }
 }
-
-
-- (void)getDataFromServer{
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"ICItem"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(!error){
-            self.items = [[NSMutableArray alloc] initWithArray:objects];
-            [self.tableView reloadData];
-            
-            [self.refreshControl endRefreshing];
-        }else{
-            NSLog(@"%@ %@",error, [error userInfo]);
-        }
-    }];
-}
-
 
 //
 //// Sent to the delegate to determine whether the log in request should be submitted to the server.

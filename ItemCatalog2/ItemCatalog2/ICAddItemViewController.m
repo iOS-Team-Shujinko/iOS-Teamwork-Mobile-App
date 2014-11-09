@@ -48,7 +48,6 @@
 - (IBAction)addItemTap:(UIBarButtonItem *)sender {
     ICItem* newItem = [self newItemObject];
     [self.delegate addObject:newItem];
-
 }
 
 
@@ -148,11 +147,16 @@
     PFUser* seller = [PFUser currentUser];
     NSString* sellerName = seller.username;
     
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber * price = [f numberFromString:self.priceField.text];
+    NSNumber * warranty = [f numberFromString:self.warrantyField.text];
+    
     addedItemObject.name = self.nameField.text;
-    addedItemObject.price = [self.priceField.text floatValue];
+    addedItemObject.price = price;
     addedItemObject.seller = sellerName;
     addedItemObject.user = seller;
-    addedItemObject.warranty = [self.warrantyField.text floatValue];
+    addedItemObject.warranty = warranty;
     addedItemObject.info = self.infoField.text;
     addedItemObject.address = self.addressField.text;
     addedItemObject.itemImage = imageFile;
