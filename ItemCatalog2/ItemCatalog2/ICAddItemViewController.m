@@ -143,23 +143,30 @@
 
 - (ICItem*)newItemObject
 {
-
     ICItem* addedItemObject = [[ICItem alloc] init];
 
     NSData* imageData = UIImageJPEGRepresentation(_itemImageView.image, 0.8);
     NSString* filename = [NSString stringWithFormat:@"%@.png", _nameField.text];
     PFFile* imageFile = [PFFile fileWithName:filename data:imageData];
 
-    NSLog(@"%@", imageFile);
-    NSString* sellerName = [PFUser currentUser].username;
+    PFUser* seller = [PFUser currentUser];
+    NSString* sellerName = seller.username;
+    
     addedItemObject.name = self.nameField.text;
     addedItemObject.price = [self.priceField.text floatValue];
     addedItemObject.seller = sellerName;
+    addedItemObject.user = seller;
     addedItemObject.warranty = [self.warrantyField.text floatValue];
     addedItemObject.info = self.infoField.text;
     addedItemObject.address = self.addressField.text;
     addedItemObject.itemImage = imageFile;
-    [addedItemObject saveInBackground];
+    
+    [addedItemObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Item could not be saved to server - sorry :)" delegate:nil cancelButtonTitle:@"Ok i'll save it again" otherButtonTitles:nil, nil]show];
+        }
+    }];
+    
     return addedItemObject;
 }
 

@@ -284,14 +284,23 @@
         ICItem *item = [self.items objectAtIndex:indexPath.row];
     
         PFFile *userImageFile = item.itemImage;
-   
-        NSData *imageData=[userImageFile getData];
+        
+        
+        [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            
+            if (!error) {
+                UIImage  *image = [UIImage imageWithData:data];
+                cell.imageView.image = image;
+            }else{
+                cell.imageView.image = [UIImage imageWithContentsOfFile:@"noimage.jpg"];
+            }
+            
+        }];
     
-        UIImage *image = [UIImage imageWithData:imageData];
+        
     
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;
-        cell.imageView.image = image;
     }
     
     CGSize itemSize = CGSizeMake(40, 40);

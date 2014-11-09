@@ -18,7 +18,7 @@
 @dynamic seller;
 @dynamic price;
 @dynamic address;
-
+@dynamic user;
 
 
 + (void)load {

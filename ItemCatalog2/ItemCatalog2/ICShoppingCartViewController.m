@@ -121,13 +121,20 @@
         
         PFFile *userImageFile = item.itemImage;
         
-        NSData *imageData=[userImageFile getData];
-        
-        UIImage *image = [UIImage imageWithData:imageData];
+        [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            
+            if (!error) {
+                UIImage  *image = [UIImage imageWithData:data];
+                cell.imageView.image = image;
+            }else{
+                cell.imageView.image = [UIImage imageWithContentsOfFile:@"noimage.jpg"];
+            }
+            
+        }];
+
         
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;
-        cell.imageView.image = image;
     }
     
     CGSize itemSize = CGSizeMake(40, 40);
