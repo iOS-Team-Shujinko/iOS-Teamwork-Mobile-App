@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B6A65361A0E57B6002DB2CF /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B6A65351A0E57B6002DB2CF /* Icon-60@2x.png */; };
 		2BB84BDE1A0E336700683BAC /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BB84BDD1A0E336700683BAC /* noimage.jpg */; };
+		2BD452811A0F86F5005791F3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD452801A0F86F5005791F3 /* Reachability.m */; };
 		840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712371A0CFDDD002D5F3F /* FacebookSDK.framework */; };
 		8407123A1A0D00C5002D5F3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */; };
 		8407123C1A0D00CC002D5F3F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407123B1A0D00CC002D5F3F /* Accounts.framework */; };
@@ -58,6 +58,8 @@
 /* Begin PBXFileReference section */
 		2B6A65351A0E57B6002DB2CF /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		2BB84BDD1A0E336700683BAC /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
+		2BD4527F1A0F86F5005791F3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2BD452801A0F86F5005791F3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		840712371A0CFDDD002D5F3F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		840712391A0D00C5002D5F3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		8407123B1A0D00CC002D5F3F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -147,6 +149,8 @@
 				84A196EF1A0E5A1600C319A4 /* folders-folder.png */,
 				84A196ED1A0E596000C319A4 /* Hand-pushing-a-shopping-cart-1127191642.png */,
 				84A03EE51A0D460C006B7687 /* loginLogo.png */,
+				2BD4527F1A0F86F5005791F3 /* Reachability.h */,
+				2BD452801A0F86F5005791F3 /* Reachability.m */,
 				84A118DE1A0BF46D0061BFF4 /* ICItem.h */,
 				84A118DF1A0BF46D0061BFF4 /* ICItem.m */,
 				84A1187B1A0BF1140061BFF4 /* ItemCatalog2 */,
@@ -358,6 +362,7 @@
 				84CE866E1A0E5E02007977FF /* ICShoppingCartViewController.m in Sources */,
 				84A118EA1A0BF46D0061BFF4 /* ICItemDataViewController.m in Sources */,
 				84A1187F1A0BF1140061BFF4 /* main.m in Sources */,
+				2BD452811A0F86F5005791F3 /* Reachability.m in Sources */,
 				84A118E91A0BF46D0061BFF4 /* ICItem.m in Sources */,
 				84A118EC1A0BF46D0061BFF4 /* ICItemTableViewController.m in Sources */,
 				84A118EB1A0BF46D0061BFF4 /* ICItemImageViewController.m in Sources */,

@@ -21,6 +21,20 @@
     [Parse setApplicationId:@"aVfrrZopMjjyL46myWNJek7RvU4Wk4T0SH4xXUXy"
                   clientKey:@"zuGZRh2s9elp6v28tsKHt4rMbCt4JX6uPkT8d0En"];
     
+    Reachability *reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+    
+    reachability.reachableBlock = ^(Reachability *reachability) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"IsConnected"];
+        NSLog(@"Network is reachable.");
+    };
+    
+    reachability.unreachableBlock = ^(Reachability *reachability) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"IsConnected"];
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Internet connection" message:@"No Internet Connection" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    };
+
     
     [NSThread sleepForTimeInterval:2.0];
     
