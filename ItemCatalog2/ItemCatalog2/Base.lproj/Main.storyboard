@@ -430,6 +430,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Buy Selected" id="zjT-RY-bd2"/>
                         <barButtonItem key="rightBarButtonItem" title="Buy All" id="FE6-IS-9CU"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Sav-BF-FXu" kind="show" identifier="ItemData" id="FiR-Fl-2VM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vct-rk-uOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,6 +466,7 @@
         <image name="noimage.jpg" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="COU-iZ-erp"/>
+        <segue reference="1tP-k2-9wW"/>
+        <segue reference="FiR-Fl-2VM"/>
     </inferredMetricsTieBreakers>
 </document>
