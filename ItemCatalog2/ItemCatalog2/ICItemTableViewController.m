@@ -11,6 +11,7 @@
 #import "ICItemImageViewController.h"
 #import <Parse/Parse.h>
 #import "ICItemDataViewController.h"
+#import "UIView+Toast.h"
 
 @interface ICItemTableViewController ()
 
@@ -234,16 +235,20 @@
      [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
--(void)addObject:(ICItem *)itemObject{
+-(void)showToast{
+    [self.view makeToast:@"Item successfully added!"
+                duration:3.0
+                position:CSToastPositionCenter
+                   title:@"Added Item"];
     
-//    if (!self.addedItems) {
-//        self.addedItems = [[NSMutableArray alloc] init];
+}
+
+-(void)addObject:(ICItem *)itemObject{
+
     [self.items addObject:itemObject];
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
-//    }
-    NSLog(@"add items");
+
     [self.tableView reloadData];
 }
 

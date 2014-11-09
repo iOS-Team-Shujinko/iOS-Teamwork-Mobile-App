@@ -14,6 +14,7 @@
 @required
 
 - (void)addObject:(ICItem *)itemObject;
+- (void)showToast;
 
 @end
 

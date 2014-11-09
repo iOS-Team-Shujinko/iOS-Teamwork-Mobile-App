@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B7639271A0FB39300C169C4 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B7639261A0FB39300C169C4 /* UIView+Toast.m */; };
 		2BB84BDE1A0E336700683BAC /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2BB84BDD1A0E336700683BAC /* noimage.jpg */; };
 		2BD452871A0F9469005791F3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD452861A0F9469005791F3 /* Reachability.m */; };
 		840712381A0CFDDD002D5F3F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840712371A0CFDDD002D5F3F /* FacebookSDK.framework */; };
@@ -58,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		2B6A65351A0E57B6002DB2CF /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		2B7639251A0FB39300C169C4 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		2B7639261A0FB39300C169C4 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		2BB84BDD1A0E336700683BAC /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
 		2BD452851A0F9469005791F3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../Reachability.h; sourceTree = "<group>"; };
 		2BD452861A0F9469005791F3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../Reachability.m; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				84A118801A0BF1140061BFF4 /* AppDelegate.h */,
 				2BD452851A0F9469005791F3 /* Reachability.h */,
 				2BD452861A0F9469005791F3 /* Reachability.m */,
+				2B7639251A0FB39300C169C4 /* UIView+Toast.h */,
+				2B7639261A0FB39300C169C4 /* UIView+Toast.m */,
 				84A118811A0BF1140061BFF4 /* AppDelegate.m */,
 				84A118D81A0BF3970061BFF4 /* ViewControllers */,
 				84A118891A0BF1150061BFF4 /* Main.storyboard */,
@@ -372,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7639271A0FB39300C169C4 /* UIView+Toast.m in Sources */,
 				8454BFD41A0F7E0900BF274E /* Item.m in Sources */,
 				84A118821A0BF1140061BFF4 /* AppDelegate.m in Sources */,
 				84CE866E1A0E5E02007977FF /* ICShoppingCartViewController.m in Sources */,

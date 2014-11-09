@@ -9,6 +9,8 @@
 #import "ICAddItemViewController.h"
 #import <Parse/Parse.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UIView+Toast.h"
 
 @interface ICAddItemViewController ()
 
@@ -19,6 +21,7 @@
     CLLocationManager* manager;
     CLGeocoder* geocoder;
     CLPlacemark* placemark;
+    BOOL flag;
 }
 
 - (void)viewDidLoad
@@ -46,9 +49,63 @@
 */
 
 - (IBAction)addItemTap:(UIBarButtonItem *)sender {
-    ICItem* newItem = [self newItemObject];
-    [self.delegate addObject:newItem];
-
+    
+    flag = 0;
+    BOOL valid;
+    NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
+    
+    NSString *trimmedName = [self.nameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *trimmedPrice = [self.priceField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *trimmedWarranty = [self.warrantyField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *trimmedAddress = [self.addressField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:self.priceField.text];
+    valid = [alphaNums isSupersetOfSet:inStringSet];
+    
+    if (trimmedName.length == 0) {
+        
+        self.nameField.layer.borderWidth = 2.0f;
+        self.nameField.layer.borderColor = [[UIColor redColor] CGColor];
+        flag = 1;
+        
+    }else{
+        self.nameField.layer.borderColor = [[UIColor clearColor] CGColor];
+    }
+    
+    if (trimmedPrice.length == 0 || !valid) {
+        
+        self.priceField.layer.borderWidth = 2.0f;
+        self.priceField.layer.borderColor = [[UIColor redColor] CGColor];
+        flag = 1;
+    }else{
+        self.priceField.layer.borderColor = [[UIColor clearColor] CGColor];
+    }
+    
+    inStringSet = [NSCharacterSet characterSetWithCharactersInString:self.warrantyField.text];
+    valid = [alphaNums isSupersetOfSet:inStringSet];
+    
+    if (trimmedWarranty.length == 0 || !valid) {
+        
+        self.warrantyField.layer.borderWidth = 2.0f;
+        self.warrantyField.layer.borderColor = [[UIColor redColor] CGColor];
+        flag = 1;
+    }else{
+        self.warrantyField.layer.borderColor = [[UIColor clearColor] CGColor];
+    }
+    
+    if (trimmedAddress.length == 0) {
+        
+        self.addressField.layer.borderWidth = 2.0f;
+        self.addressField.layer.borderColor = [[UIColor redColor] CGColor];
+        flag = 1;
+    }else{
+        self.addressField.layer.borderColor = [[UIColor clearColor] CGColor];
+    }
+    
+    if (flag == 0) {
+        ICItem* newItem = [self newItemObject];
+        [self.delegate addObject:newItem];
+    }
 }
 
 
@@ -158,8 +215,16 @@
     addedItemObject.itemImage = imageFile;
     
     [addedItemObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
         if (error) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Item could not be saved to server - sorry :)" delegate:nil cancelButtonTitle:@"Ok i'll save it again" otherButtonTitles:nil, nil]show];
+            
+            NSLog(@"%@",error);
+        }else{
+            
+         [self.delegate showToast];
+            
+            
         }
     }];
     
