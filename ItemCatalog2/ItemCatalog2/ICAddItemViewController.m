@@ -49,7 +49,7 @@
 */
 
 - (IBAction)addItemTap:(UIBarButtonItem *)sender {
-<<<<<<< HEAD
+
     
     flag = 0;
     BOOL valid;
@@ -107,10 +107,10 @@
         ICItem* newItem = [self newItemObject];
         [self.delegate addObject:newItem];
     }
-=======
+
     ICItem* newItem = [self newItemObject];
     [self.delegate addObject:newItem];
->>>>>>> 74d1b7deddc0b349efff2f84e26e7f3862636611
+
 }
 
 
