@@ -18,16 +18,6 @@
 
 @implementation ICItemTableViewController
 
-- (UILabel *) getTitle {
-    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake (0, 0, 200, 30)];
-    title.attributedText =[[NSAttributedString alloc] initWithString:@"Item Catalog"
-                                                          attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
-    title.backgroundColor = [UIColor whiteColor];
-    //  [title setFont:[UIFont boldSystemFontOfSize:24]];
-    title.textAlignment = NSTextAlignmentCenter;
-    [title setFont:[UIFont fontWithName:@"Raleway" size:30]];
-    return title;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +36,6 @@
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0; //seconds
-    lpgr.delegate = self;
     [self.tableView addGestureRecognizer:lpgr];
     
     
@@ -139,18 +128,24 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self.navigationItem.leftBarButtonItem setTitle:@"LogOut"];
     self.addButton.enabled = YES;
+    [[[[self.tabBarController tabBar]items]objectAtIndex:1]setEnabled:YES];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 // Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Error: could not log in...");
+    [[[UIAlertView alloc] initWithTitle:@"Not logged in!"
+                                message:@"Sorry but we could not log you in please try again!"
+                               delegate:nil
+                      cancelButtonTitle:@"Ok"
+                      otherButtonTitles:nil] show];
 }
 
 // Sent to the delegate when the log in screen is dismissed.
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
     [self.navigationItem.leftBarButtonItem setTitle:@"LogIn"];
     self.addButton.enabled = NO;
+    [[[[self.tabBarController tabBar]items]objectAtIndex:1]setEnabled:NO];
     [[[UIAlertView alloc] initWithTitle:@"Not logged in!"
                                 message:@"You have to be logged in if you want to add items to the store or to your basket!"
                                delegate:nil
@@ -283,8 +278,7 @@
     } else {
         ICItem *item = [self.items objectAtIndex:indexPath.row];
     
-        PFFile *userImageFile = item.itemImage;
-        
+        PFFile *userImageFile = item.itemImage;        
         
         [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             
@@ -296,8 +290,7 @@
             }
             
         }];
-    
-        
+           
     
         cell.textLabel.text = item.name;
         cell.detailTextLabel.text = item.info;

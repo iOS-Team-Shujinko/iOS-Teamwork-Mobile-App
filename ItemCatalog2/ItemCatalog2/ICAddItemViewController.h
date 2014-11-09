@@ -14,7 +14,6 @@
 @required
 
 - (void)addObject:(ICItem *)itemObject;
-- (void)didCancel;
 
 @end
 
@@ -31,8 +30,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *infoField;
 @property (strong, nonatomic) IBOutlet UITextField *addressField;
 
-- (IBAction)addButtonTap:(UIButton *)sender;
-- (IBAction)cancelButtonTap:(UIButton *)sender;
+- (IBAction)addItemTap:(UIBarButtonItem *)sender;
 - (IBAction)addImageTap:(UIButton *)sender;
 - (IBAction)addAddressButton:(UIButton *)sender;
 

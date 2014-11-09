@@ -21,18 +21,15 @@
     self.scrollView.delegate = self;
     
     PFFile *userImageFile = self.itemObject.itemImage;
+
     
-    NSData *imageData=[userImageFile getData];
-    
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-//    UIGraphicsBeginImageContext(self.view.frame.size);
-//    [image drawInRect:self.view.bounds];
-//    UIImage *loginBg = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    
-    
-    [self.imageView setImage:image];
+    __weak UIImageView *cellImageView = self.imageView;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        [self.imageView.layer addAnimation:[self getImageTransition] forKey:nil];
+        cellImageView.image = image;
+    }];
+   
     
     [self.scrollView setMinimumZoomScale:0.1f];
     [self.scrollView setMaximumZoomScale:5.0f];
@@ -46,7 +43,13 @@
     
     
 }
-
+-(CATransition*)getImageTransition{
+    CATransition *trans = [CATransition animation];
+    trans.duration = 1.5f;
+    trans.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    trans.type = kCATransitionFade;
+    return trans;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
